@@ -436,7 +436,8 @@ def landing_page(request):
         logger.info(f"Creating new user with AID: {aid}")
 
         try:
-            events_data, csv_row_id, ps, dprime_h, dprime_s, thresh_dist, architecture = load_block_trials()            logger.info(f"Assigned CSV row {csv_row_id} to AID {aid}")
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresh_dist, architecture = load_block_trials()
+            logger.info(f"Assigned CSV row {csv_row_id} to AID {aid}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to load_block_trials for AID {aid}: {e}")
             # Log the error to a file for debugging
