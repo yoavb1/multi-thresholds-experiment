@@ -26,7 +26,7 @@ def log_landing_attempt(request, aid, source):
     This runs BEFORE any database operations, so we can see all attempts.
     """
     try:
-        log_path = os.path.join(settings.BASE_DIR, 'DATA', 'landing_attempts.csv')
+        log_path = os.path.join(settings.BASE_DIR, 'data', 'landing_attempts.csv')
         file_exists = os.path.exists(log_path)
 
         # Get all URL parameters for debugging
@@ -970,7 +970,7 @@ def log_devtools(request):
     if request.method == 'POST':
         user_id = request.session.get('user_id')
         if user_id:
-            csv_path = os.path.join(settings.BASE_DIR, 'DATA', 'devtools_log.csv')
+            csv_path = os.path.join(settings.BASE_DIR, 'data', 'devtools_log.csv')
             file_exists = os.path.exists(csv_path)
             with open(csv_path, 'a', newline='') as f:
                 writer = csv.writer(f)
