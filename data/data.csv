@@ -1,481 +1,481 @@
-condition_id,item_id,architecture,ps,dprime_ai,dprime_human,thresholds_distance,true_label,x_ai,ai_classification,x_human
-1,1,two_thresholds,0.5,1.5,1.5,high,fake,2.620500135,signal,0.2331276
-1,2,two_thresholds,0.5,1.5,1.5,high,fake,-0.352462838,signal,0.316672528
-1,3,two_thresholds,0.5,1.5,1.5,high,real,0.221842281,not sure,-0.789695554
-1,4,two_thresholds,0.5,1.5,1.5,low,fake,0.2854992,noise,0.974966421
-1,5,two_thresholds,0.5,1.5,1.5,high,fake,-0.546411641,noise,2.864682667
-1,6,two_thresholds,0.5,1.5,1.5,high,real,-0.310381083,not sure,-2.037623104
-1,7,two_thresholds,0.5,1.5,1.5,high,fake,-0.386298958,signal,0.759378845
-1,8,two_thresholds,0.5,1.5,1.5,high,real,-0.598855629,not sure,-0.946241272
-1,9,two_thresholds,0.5,1.5,1.5,low,real,0.671835544,noise,-0.75068814
-1,10,two_thresholds,0.5,1.5,1.5,low,real,1.829960173,noise,0.472399716
-1,11,two_thresholds,0.5,1.5,1.5,high,fake,1.007303153,signal,1.132904909
-1,12,two_thresholds,0.5,1.5,1.5,high,fake,1.072128989,not sure,2.23005314
-1,13,two_thresholds,0.5,1.5,1.5,low,fake,0.424826702,signal,0.393347824
-1,14,two_thresholds,0.5,1.5,1.5,high,real,0.468071975,noise,-1.418215674
-1,15,two_thresholds,0.5,1.5,1.5,low,fake,1.03823185,not sure,0.958556031
-1,16,two_thresholds,0.5,1.5,1.5,high,fake,0.084046468,signal,-0.546096608
-1,17,two_thresholds,0.5,1.5,1.5,low,fake,1.365800372,not sure,1.704111643
-1,18,two_thresholds,0.5,1.5,1.5,high,real,-1.860067323,not sure,1.303090812
-1,19,two_thresholds,0.5,1.5,1.5,low,fake,0.238895263,noise,0.126942432
-1,20,two_thresholds,0.5,1.5,1.5,low,real,-2.313499358,noise,0.355905873
-1,21,two_thresholds,0.5,1.5,1.5,low,real,-0.832782425,not sure,0.523625221
-1,22,two_thresholds,0.5,1.5,1.5,low,real,-1.046783526,not sure,0.84355284
-1,23,two_thresholds,0.5,1.5,1.5,high,fake,0.653524371,noise,-1.013901406
-1,24,two_thresholds,0.5,1.5,1.5,high,fake,1.686696769,signal,0.448822322
-1,25,two_thresholds,0.5,1.5,1.5,high,fake,0.678919994,noise,1.95099557
-1,26,two_thresholds,0.5,1.5,1.5,low,real,0.566820135,noise,-1.221635314
-1,27,two_thresholds,0.5,1.5,1.5,low,fake,1.184417833,noise,0.505600612
-1,28,two_thresholds,0.5,1.5,1.5,high,fake,0.64794198,noise,0.714216516
-1,29,two_thresholds,0.5,1.5,1.5,low,real,-0.350532982,signal,0.688026437
-1,30,two_thresholds,0.5,1.5,1.5,high,real,-0.86306028,signal,-3.588878758
-1,31,two_thresholds,0.5,1.5,1.5,low,fake,0.135357013,not sure,0.559023507
-1,32,two_thresholds,0.5,1.5,1.5,high,real,-1.249424996,not sure,-1.567674833
-1,33,two_thresholds,0.5,1.5,1.5,high,fake,1.817445481,signal,1.061164582
-1,34,two_thresholds,0.5,1.5,1.5,low,real,-1.079426657,not sure,-1.672017122
-1,35,two_thresholds,0.5,1.5,1.5,high,real,0.914918173,noise,-0.015917574
-1,36,two_thresholds,0.5,1.5,1.5,high,real,0.641505547,not sure,-0.148828481
-1,37,two_thresholds,0.5,1.5,1.5,low,fake,0.308779672,not sure,1.610312887
-1,38,two_thresholds,0.5,1.5,1.5,low,real,-0.896437625,noise,-2.37396721
-1,39,two_thresholds,0.5,1.5,1.5,high,real,-2.127220767,signal,-2.446687696
-1,40,two_thresholds,0.5,1.5,1.5,high,fake,-1.02696103,signal,0.47251601
-1,41,two_thresholds,0.5,1.5,1.5,low,fake,0.704134467,noise,1.068343068
-1,42,two_thresholds,0.5,1.5,1.5,high,real,-1.415128109,signal,-0.405651275
-1,43,two_thresholds,0.5,1.5,1.5,low,fake,0.393506359,not sure,0.359617083
-1,44,two_thresholds,0.5,1.5,1.5,low,real,-1.280463478,not sure,-1.224987949
-1,45,two_thresholds,0.5,1.5,1.5,low,real,-0.918865111,signal,0.284840851
-1,46,two_thresholds,0.5,1.5,1.5,high,real,-1.513408619,not sure,-0.775475074
-1,47,two_thresholds,0.5,1.5,1.5,low,fake,0.188451881,signal,-0.733104657
-1,48,two_thresholds,0.5,1.5,1.5,low,real,-0.466633389,noise,-2.414867325
-1,49,two_thresholds,0.5,1.5,1.5,low,fake,1.832640911,noise,2.112980777
-1,50,two_thresholds,0.5,1.5,1.5,low,fake,1.947447816,noise,0.405032617
-1,51,two_thresholds,0.5,1.5,1.5,low,real,-0.393064822,noise,-0.560452492
-1,52,two_thresholds,0.5,1.5,1.5,low,fake,-1.002801013,noise,0.555365527
-1,53,two_thresholds,0.5,1.5,1.5,high,fake,1.95368633,signal,0.374350738
-1,54,two_thresholds,0.5,1.5,1.5,high,fake,1.349881598,noise,-1.885833142
-1,55,two_thresholds,0.5,1.5,1.5,low,fake,0.931507497,not sure,1.573008851
-1,56,two_thresholds,0.5,1.5,1.5,low,fake,1.133512019,noise,-0.520959361
-1,57,two_thresholds,0.5,1.5,1.5,high,fake,0.637369376,not sure,0.149617197
-1,58,two_thresholds,0.5,1.5,1.5,high,fake,0.905410505,signal,1.713231767
-1,59,two_thresholds,0.5,1.5,1.5,low,fake,-0.014197506,not sure,0.641596296
-1,60,two_thresholds,0.5,1.5,1.5,high,real,-1.497551598,noise,-1.168083386
-1,61,two_thresholds,0.5,1.5,1.5,low,real,-2.966998947,not sure,-0.328537331
-1,62,two_thresholds,0.5,1.5,1.5,low,real,-1.053591266,not sure,0.540609806
-1,63,two_thresholds,0.5,1.5,1.5,low,fake,0.976153773,not sure,1.45999355
-1,64,two_thresholds,0.5,1.5,1.5,high,fake,1.044276,not sure,1.084016476
-1,65,two_thresholds,0.5,1.5,1.5,low,fake,-0.461237752,noise,1.992470595
-1,66,two_thresholds,0.5,1.5,1.5,high,fake,-0.012223312,not sure,0.48574962
-1,67,two_thresholds,0.5,1.5,1.5,high,fake,1.350957702,not sure,2.076370764
-1,68,two_thresholds,0.5,1.5,1.5,high,fake,-0.137436866,signal,2.097088865
-1,69,two_thresholds,0.5,1.5,1.5,high,real,-0.944204279,not sure,-1.703564302
-1,70,two_thresholds,0.5,1.5,1.5,low,fake,-1.326979722,signal,-0.613490369
-1,71,two_thresholds,0.5,1.5,1.5,low,real,-0.022871558,noise,-0.526233396
-1,72,two_thresholds,0.5,1.5,1.5,high,fake,1.486442822,noise,2.113898872
-1,73,two_thresholds,0.5,1.5,1.5,high,fake,1.579730428,noise,-0.471798728
-1,74,two_thresholds,0.5,1.5,1.5,low,real,-1.011950331,noise,-0.038724396
-1,75,two_thresholds,0.5,1.5,1.5,high,fake,1.347451965,noise,0.140767179
-1,76,two_thresholds,0.5,1.5,1.5,low,real,-0.613727607,noise,-2.589731533
-1,77,two_thresholds,0.5,1.5,1.5,high,real,-0.134029446,not sure,-0.279057352
-1,78,two_thresholds,0.5,1.5,1.5,low,real,-1.975641224,not sure,-0.195688061
-1,79,two_thresholds,0.5,1.5,1.5,low,fake,1.016498152,not sure,-0.231094889
-1,80,two_thresholds,0.5,1.5,1.5,low,real,-1.672810648,not sure,-1.549036685
-1,81,two_thresholds,0.5,1.5,1.5,low,real,0.044577562,signal,-0.10701078
-1,82,two_thresholds,0.5,1.5,1.5,low,fake,2.025105328,not sure,1.547377112
-1,83,two_thresholds,0.5,1.5,1.5,high,fake,1.930917925,signal,0.849221546
-1,84,two_thresholds,0.5,1.5,1.5,low,fake,0.072990419,not sure,0.444672527
-1,85,two_thresholds,0.5,1.5,1.5,high,real,-0.995166964,not sure,-1.573772203
-1,86,two_thresholds,0.5,1.5,1.5,high,fake,-0.406336641,noise,1.790983187
-1,87,two_thresholds,0.5,1.5,1.5,low,real,0.034789345,signal,1.698315722
-1,88,two_thresholds,0.5,1.5,1.5,high,real,1.0029275,not sure,-0.491100136
-1,89,two_thresholds,0.5,1.5,1.5,low,real,-2.196213206,not sure,-1.007835346
-1,90,two_thresholds,0.5,1.5,1.5,low,real,-0.330372104,signal,0.644713893
-1,91,two_thresholds,0.5,1.5,1.5,low,real,0.183298824,not sure,1.487940953
-1,92,two_thresholds,0.5,1.5,1.5,low,fake,2.088277669,noise,0.19839325
-1,93,two_thresholds,0.5,1.5,1.5,high,real,-0.588561116,signal,0.584824569
-1,94,two_thresholds,0.5,1.5,1.5,low,real,-1.907409371,not sure,-1.567926391
-1,95,two_thresholds,0.5,1.5,1.5,low,real,-0.039602296,signal,0.038671731
-1,96,two_thresholds,0.5,1.5,1.5,high,fake,0.722113961,not sure,0.346283621
-1,97,two_thresholds,0.5,1.5,1.5,low,real,-0.880232042,signal,-2.759220539
-1,98,two_thresholds,0.5,1.5,1.5,low,fake,0.099301686,not sure,0.024236059
-1,99,two_thresholds,0.5,1.5,1.5,high,real,-1.326340049,not sure,0.590172565
-1,100,two_thresholds,0.5,1.5,1.5,high,real,-0.919628911,noise,-1.152889109
-1,101,two_thresholds,0.5,1.5,1.5,low,real,-0.781440336,not sure,-2.545105023
-1,102,two_thresholds,0.5,1.5,1.5,low,real,-0.808431644,noise,-0.137575573
-1,103,two_thresholds,0.5,1.5,1.5,low,fake,0.592321209,not sure,1.698684964
-1,104,two_thresholds,0.5,1.5,1.5,high,fake,-0.325073308,not sure,1.347053191
-1,105,two_thresholds,0.5,1.5,1.5,high,fake,0.926625666,not sure,1.147942879
-1,106,two_thresholds,0.5,1.5,1.5,low,real,-1.884733165,not sure,-1.696019638
-1,107,two_thresholds,0.5,1.5,1.5,low,fake,0.1914449,signal,-0.263581706
-1,108,two_thresholds,0.5,1.5,1.5,high,real,-0.366186296,signal,-1.850859523
-1,109,two_thresholds,0.5,1.5,1.5,low,fake,2.644392614,not sure,1.584776448
-1,110,two_thresholds,0.5,1.5,1.5,high,real,-0.428655747,signal,-0.729515546
-1,111,two_thresholds,0.5,1.5,1.5,low,real,-1.16889081,not sure,-1.261556194
-1,112,two_thresholds,0.5,1.5,1.5,high,real,-1.275506125,signal,-2.424981819
-1,113,two_thresholds,0.5,1.5,1.5,low,fake,0.204194751,signal,1.336736932
-1,114,two_thresholds,0.5,1.5,1.5,high,real,-2.047690525,signal,-0.591768144
-1,115,two_thresholds,0.5,1.5,1.5,high,real,0.527100998,signal,0.95519518
-1,116,two_thresholds,0.5,1.5,1.5,low,real,0.588789132,signal,-0.322774122
-1,117,two_thresholds,0.5,1.5,1.5,low,fake,1.188622333,signal,-0.730019285
-1,118,two_thresholds,0.5,1.5,1.5,high,real,-0.14048267,signal,-1.350887373
-1,119,two_thresholds,0.5,1.5,1.5,low,fake,2.282737279,noise,0.272622546
-1,120,two_thresholds,0.5,1.5,1.5,low,real,-3.201480727,not sure,-1.70292742
-2,1,two_thresholds,0.5,1.5,2.5,high,fake,0.960937966,noise,1.546274264
-2,2,two_thresholds,0.5,1.5,2.5,low,fake,2.946097067,signal,0.0716679
-2,3,two_thresholds,0.5,1.5,2.5,high,real,-1.398255637,signal,-2.044166695
-2,4,two_thresholds,0.5,1.5,2.5,high,fake,0.568783457,not sure,2.039153848
-2,5,two_thresholds,0.5,1.5,2.5,low,fake,0.305663902,not sure,0.914567091
-2,6,two_thresholds,0.5,1.5,2.5,high,fake,1.456068961,not sure,0.007938435
-2,7,two_thresholds,0.5,1.5,2.5,low,fake,1.210715699,signal,1.842412929
-2,8,two_thresholds,0.5,1.5,2.5,low,real,0.914711882,noise,-2.362010482
-2,9,two_thresholds,0.5,1.5,2.5,low,real,-1.092853876,noise,-1.425904512
-2,10,two_thresholds,0.5,1.5,2.5,low,fake,0.358399275,signal,-0.243798841
-2,11,two_thresholds,0.5,1.5,2.5,low,real,-1.457341762,signal,-0.208672136
-2,12,two_thresholds,0.5,1.5,2.5,high,fake,1.077840542,signal,0.369226396
-2,13,two_thresholds,0.5,1.5,2.5,low,fake,0.472568744,noise,1.314156989
-2,14,two_thresholds,0.5,1.5,2.5,high,real,-1.25215944,not sure,-1.354060284
-2,15,two_thresholds,0.5,1.5,2.5,high,real,-0.833348118,noise,-2.312410154
-2,16,two_thresholds,0.5,1.5,2.5,high,fake,0.64098521,signal,1.823004578
-2,17,two_thresholds,0.5,1.5,2.5,high,real,-2.222013933,noise,-0.80774121
-2,18,two_thresholds,0.5,1.5,2.5,low,fake,0.172127265,noise,-0.035221892
-2,19,two_thresholds,0.5,1.5,2.5,high,real,-0.628534118,noise,-1.600811411
-2,20,two_thresholds,0.5,1.5,2.5,low,fake,0.693491321,noise,1.616009919
-2,21,two_thresholds,0.5,1.5,2.5,high,fake,0.759043252,noise,2.188510625
-2,22,two_thresholds,0.5,1.5,2.5,high,real,-0.98348224,not sure,-0.422533481
-2,23,two_thresholds,0.5,1.5,2.5,high,real,-1.656807395,noise,0.208389974
-2,24,two_thresholds,0.5,1.5,2.5,high,real,0.435913075,signal,-1.730367911
-2,25,two_thresholds,0.5,1.5,2.5,high,real,-3.451908384,not sure,-2.95093915
-2,26,two_thresholds,0.5,1.5,2.5,low,fake,-0.2752363,noise,2.30979714
-2,27,two_thresholds,0.5,1.5,2.5,low,fake,0.359662775,signal,0.945075209
-2,28,two_thresholds,0.5,1.5,2.5,high,fake,-0.732829897,noise,-1.264049991
-2,29,two_thresholds,0.5,1.5,2.5,low,fake,0.941604518,signal,1.658097445
-2,30,two_thresholds,0.5,1.5,2.5,high,fake,0.487191425,signal,1.681476571
-2,31,two_thresholds,0.5,1.5,2.5,high,real,-1.612939907,signal,-1.532332595
-2,32,two_thresholds,0.5,1.5,2.5,high,real,-0.870688648,not sure,-1.853127179
-2,33,two_thresholds,0.5,1.5,2.5,low,real,-0.907919675,not sure,-2.686499421
-2,34,two_thresholds,0.5,1.5,2.5,high,real,-0.808371103,noise,0.369016158
-2,35,two_thresholds,0.5,1.5,2.5,high,real,-2.571924342,not sure,-0.417467164
-2,36,two_thresholds,0.5,1.5,2.5,low,real,-1.889279613,not sure,-0.11299706
-2,37,two_thresholds,0.5,1.5,2.5,low,fake,2.612696229,not sure,1.067196214
-2,38,two_thresholds,0.5,1.5,2.5,low,fake,-0.061440491,not sure,1.699492799
-2,39,two_thresholds,0.5,1.5,2.5,low,real,-0.514710009,not sure,-1.913305588
-2,40,two_thresholds,0.5,1.5,2.5,high,fake,1.21616626,noise,1.850677254
-2,41,two_thresholds,0.5,1.5,2.5,high,fake,0.901520134,signal,0.457517266
-2,42,two_thresholds,0.5,1.5,2.5,high,fake,0.852220352,signal,-0.305502618
-2,43,two_thresholds,0.5,1.5,2.5,low,fake,-1.284875167,not sure,0.821607438
-2,44,two_thresholds,0.5,1.5,2.5,low,real,-0.814523542,signal,-0.303219959
-2,45,two_thresholds,0.5,1.5,2.5,low,real,0.050396476,signal,-1.783965508
-2,46,two_thresholds,0.5,1.5,2.5,high,fake,1.876761114,signal,1.050896484
-2,47,two_thresholds,0.5,1.5,2.5,low,real,0.35307547,not sure,-0.210650488
-2,48,two_thresholds,0.5,1.5,2.5,high,real,0.139523915,not sure,-1.209229234
-2,49,two_thresholds,0.5,1.5,2.5,high,real,1.156836564,not sure,-0.646417965
-2,50,two_thresholds,0.5,1.5,2.5,low,fake,0.827031979,not sure,2.821497212
-2,51,two_thresholds,0.5,1.5,2.5,low,fake,-0.188818673,not sure,0.922120611
-2,52,two_thresholds,0.5,1.5,2.5,low,fake,0.14672531,noise,1.500206116
-2,53,two_thresholds,0.5,1.5,2.5,low,real,0.956466398,signal,-0.76684983
-2,54,two_thresholds,0.5,1.5,2.5,high,fake,-0.127377021,noise,0.949172075
-2,55,two_thresholds,0.5,1.5,2.5,low,fake,0.212168935,noise,1.428568466
-2,56,two_thresholds,0.5,1.5,2.5,high,real,-1.374028075,signal,-0.347664524
-2,57,two_thresholds,0.5,1.5,2.5,high,real,0.024189369,noise,-2.138961676
-2,58,two_thresholds,0.5,1.5,2.5,high,real,-2.202638611,noise,-2.586093914
-2,59,two_thresholds,0.5,1.5,2.5,high,fake,1.261695514,noise,2.338977349
-2,60,two_thresholds,0.5,1.5,2.5,low,real,-1.39488043,not sure,-1.739646429
-2,61,two_thresholds,0.5,1.5,2.5,low,fake,0.247837306,signal,0.796006947
-2,62,two_thresholds,0.5,1.5,2.5,high,real,-0.600257224,noise,-0.076601958
-2,63,two_thresholds,0.5,1.5,2.5,low,fake,0.599347991,signal,-0.671962687
-2,64,two_thresholds,0.5,1.5,2.5,low,real,-1.0473402,noise,-1.846250566
-2,65,two_thresholds,0.5,1.5,2.5,low,real,-1.846926866,not sure,-1.036439749
-2,66,two_thresholds,0.5,1.5,2.5,low,real,-0.879445835,signal,-1.772617058
-2,67,two_thresholds,0.5,1.5,2.5,high,real,-0.53693232,not sure,-0.648185515
-2,68,two_thresholds,0.5,1.5,2.5,high,fake,1.669823383,not sure,-0.550207951
-2,69,two_thresholds,0.5,1.5,2.5,high,real,-1.279248841,noise,-1.920699447
-2,70,two_thresholds,0.5,1.5,2.5,low,real,-1.226633767,not sure,-1.657627248
-2,71,two_thresholds,0.5,1.5,2.5,low,fake,1.113050485,not sure,0.604716282
-2,72,two_thresholds,0.5,1.5,2.5,high,fake,0.637019784,noise,2.625572235
-2,73,two_thresholds,0.5,1.5,2.5,high,fake,0.638204183,noise,2.774253642
-2,74,two_thresholds,0.5,1.5,2.5,low,fake,0.416763857,not sure,2.327828318
-2,75,two_thresholds,0.5,1.5,2.5,high,fake,0.90197234,not sure,-0.061329522
-2,76,two_thresholds,0.5,1.5,2.5,low,real,-0.756521962,signal,-0.048605924
-2,77,two_thresholds,0.5,1.5,2.5,low,fake,1.414919366,noise,2.074755477
-2,78,two_thresholds,0.5,1.5,2.5,low,fake,1.427721792,not sure,1.911898672
-2,79,two_thresholds,0.5,1.5,2.5,low,fake,-0.922294567,signal,0.920077564
-2,80,two_thresholds,0.5,1.5,2.5,high,real,-0.507606984,signal,-1.752253151
-2,81,two_thresholds,0.5,1.5,2.5,high,fake,-0.076058976,noise,1.304526881
-2,82,two_thresholds,0.5,1.5,2.5,low,real,1.174485673,noise,-1.872487013
-2,83,two_thresholds,0.5,1.5,2.5,low,real,-1.139051516,noise,-1.634606947
-2,84,two_thresholds,0.5,1.5,2.5,high,real,-1.103178631,not sure,0.371315502
-2,85,two_thresholds,0.5,1.5,2.5,low,fake,-0.020266011,not sure,0.998138747
-2,86,two_thresholds,0.5,1.5,2.5,high,real,-1.684586375,noise,0.469526647
-2,87,two_thresholds,0.5,1.5,2.5,high,fake,0.965533862,noise,0.097756012
-2,88,two_thresholds,0.5,1.5,2.5,low,fake,0.669875593,not sure,2.353400257
-2,89,two_thresholds,0.5,1.5,2.5,low,fake,1.507721684,noise,1.540206264
-2,90,two_thresholds,0.5,1.5,2.5,low,real,-1.041698795,not sure,0.365858716
-2,91,two_thresholds,0.5,1.5,2.5,high,real,-0.906081117,noise,-1.330729028
-2,92,two_thresholds,0.5,1.5,2.5,low,fake,1.837811898,noise,2.94969531
-2,93,two_thresholds,0.5,1.5,2.5,high,fake,-0.321676028,not sure,0.801564228
-2,94,two_thresholds,0.5,1.5,2.5,low,fake,0.143225763,noise,0.489112666
-2,95,two_thresholds,0.5,1.5,2.5,high,real,2.331217882,noise,-2.492251856
-2,96,two_thresholds,0.5,1.5,2.5,high,real,0.605999942,not sure,-1.994235031
-2,97,two_thresholds,0.5,1.5,2.5,low,real,-1.509502365,not sure,-2.100686747
-2,98,two_thresholds,0.5,1.5,2.5,high,real,-0.970981896,noise,-1.309162103
-2,99,two_thresholds,0.5,1.5,2.5,low,real,0.22919949,not sure,0.003990326
-2,100,two_thresholds,0.5,1.5,2.5,low,fake,1.309882397,signal,3.384047522
-2,101,two_thresholds,0.5,1.5,2.5,low,fake,1.912571079,not sure,2.60391404
-2,102,two_thresholds,0.5,1.5,2.5,low,real,-1.746373224,signal,-0.752659067
-2,103,two_thresholds,0.5,1.5,2.5,low,real,0.034787703,signal,-0.575880254
-2,104,two_thresholds,0.5,1.5,2.5,low,real,0.079898511,noise,-1.590910682
-2,105,two_thresholds,0.5,1.5,2.5,low,real,0.259772554,signal,-0.737589375
-2,106,two_thresholds,0.5,1.5,2.5,low,fake,2.197793821,noise,2.941757822
-2,107,two_thresholds,0.5,1.5,2.5,high,real,-0.043093816,noise,-0.195041978
-2,108,two_thresholds,0.5,1.5,2.5,high,fake,-0.64990689,noise,0.372958004
-2,109,two_thresholds,0.5,1.5,2.5,low,fake,0.070295271,not sure,0.988347176
-2,110,two_thresholds,0.5,1.5,2.5,low,real,-1.458035646,not sure,-3.028432023
-2,111,two_thresholds,0.5,1.5,2.5,low,real,-0.57681911,signal,-0.568765974
-2,112,two_thresholds,0.5,1.5,2.5,high,real,-0.962191843,not sure,-2.176471078
-2,113,two_thresholds,0.5,1.5,2.5,low,fake,0.134440115,not sure,2.906004137
-2,114,two_thresholds,0.5,1.5,2.5,high,fake,0.212099562,noise,2.207325954
-2,115,two_thresholds,0.5,1.5,2.5,high,fake,3.359760343,noise,1.070212544
-2,116,two_thresholds,0.5,1.5,2.5,high,real,-1.715417232,signal,-1.834401865
-2,117,two_thresholds,0.5,1.5,2.5,low,fake,1.670799894,not sure,-0.810580207
-2,118,two_thresholds,0.5,1.5,2.5,high,real,0.26905825,signal,-1.723678272
-2,119,two_thresholds,0.5,1.5,2.5,high,real,-0.53899873,not sure,-2.642781451
-2,120,two_thresholds,0.5,1.5,2.5,low,fake,1.284141047,signal,0.663278385
-3,1,two_thresholds,0.5,2.5,1.5,high,fake,3.157289639,not sure,-0.778806188
-3,2,two_thresholds,0.5,2.5,1.5,high,real,-2.233331933,noise,-0.251887346
-3,3,two_thresholds,0.5,2.5,1.5,low,fake,1.135838802,not sure,1.137350572
-3,4,two_thresholds,0.5,2.5,1.5,low,fake,2.386579013,signal,2.615053095
-3,5,two_thresholds,0.5,2.5,1.5,high,fake,2.767493412,signal,-0.249126628
-3,6,two_thresholds,0.5,2.5,1.5,high,fake,0.80567535,noise,1.804005881
-3,7,two_thresholds,0.5,2.5,1.5,high,real,-0.862136997,not sure,-1.962164342
-3,8,two_thresholds,0.5,2.5,1.5,high,real,-1.329838163,signal,-1.031155491
-3,9,two_thresholds,0.5,2.5,1.5,low,real,-2.083989099,signal,-0.651361858
-3,10,two_thresholds,0.5,2.5,1.5,high,real,-1.604784779,not sure,0.165831497
-3,11,two_thresholds,0.5,2.5,1.5,low,real,-1.878981498,signal,-0.085934199
-3,12,two_thresholds,0.5,2.5,1.5,low,fake,0.737424991,signal,2.153449599
-3,13,two_thresholds,0.5,2.5,1.5,low,fake,1.377421907,not sure,-0.554315805
-3,14,two_thresholds,0.5,2.5,1.5,high,real,0.16828256,not sure,-2.479975427
-3,15,two_thresholds,0.5,2.5,1.5,low,fake,0.372906676,noise,1.855181475
-3,16,two_thresholds,0.5,2.5,1.5,high,fake,1.311178929,noise,1.429300473
-3,17,two_thresholds,0.5,2.5,1.5,low,fake,0.581219272,noise,0.546335996
-3,18,two_thresholds,0.5,2.5,1.5,high,fake,1.096500883,noise,1.455895051
-3,19,two_thresholds,0.5,2.5,1.5,high,real,0.586818211,not sure,-2.283650367
-3,20,two_thresholds,0.5,2.5,1.5,high,fake,1.834224971,signal,0.807221822
-3,21,two_thresholds,0.5,2.5,1.5,high,fake,0.78927014,not sure,1.14778936
-3,22,two_thresholds,0.5,2.5,1.5,low,real,-2.49917913,noise,-1.065939772
-3,23,two_thresholds,0.5,2.5,1.5,low,real,0.341052799,noise,-1.165948704
-3,24,two_thresholds,0.5,2.5,1.5,high,fake,-0.508979527,noise,1.840176223
-3,25,two_thresholds,0.5,2.5,1.5,low,real,-0.344167446,signal,0.191785467
-3,26,two_thresholds,0.5,2.5,1.5,low,real,-1.638866098,signal,0.53856326
-3,27,two_thresholds,0.5,2.5,1.5,high,real,-2.600180577,not sure,-0.207689572
-3,28,two_thresholds,0.5,2.5,1.5,low,real,-1.110259528,noise,-2.549699381
-3,29,two_thresholds,0.5,2.5,1.5,low,fake,-0.526776985,noise,0.151682526
-3,30,two_thresholds,0.5,2.5,1.5,high,fake,1.074315233,noise,1.457377552
-3,31,two_thresholds,0.5,2.5,1.5,high,fake,-0.227928443,noise,1.237061825
-3,32,two_thresholds,0.5,2.5,1.5,high,real,-1.962976671,not sure,-1.412244665
-3,33,two_thresholds,0.5,2.5,1.5,high,real,-0.748705405,not sure,-0.865227303
-3,34,two_thresholds,0.5,2.5,1.5,high,fake,2.228956841,signal,2.216387072
-3,35,two_thresholds,0.5,2.5,1.5,high,fake,-0.73091848,signal,-0.4504964
-3,36,two_thresholds,0.5,2.5,1.5,high,real,-1.067209551,noise,-1.863193552
-3,37,two_thresholds,0.5,2.5,1.5,low,real,-0.62624568,noise,-0.616029062
-3,38,two_thresholds,0.5,2.5,1.5,high,real,-1.901383003,signal,-1.742221693
-3,39,two_thresholds,0.5,2.5,1.5,high,real,-0.587423583,signal,-0.568668258
-3,40,two_thresholds,0.5,2.5,1.5,high,real,0.601588039,not sure,0.02852887
-3,41,two_thresholds,0.5,2.5,1.5,high,fake,1.547423856,signal,-0.262473416
-3,42,two_thresholds,0.5,2.5,1.5,high,real,-3.265305342,not sure,-1.663421199
-3,43,two_thresholds,0.5,2.5,1.5,high,real,-3.567287639,not sure,0.031500207
-3,44,two_thresholds,0.5,2.5,1.5,high,fake,2.756283417,noise,-0.038330458
-3,45,two_thresholds,0.5,2.5,1.5,high,fake,0.415534823,noise,1.026315802
-3,46,two_thresholds,0.5,2.5,1.5,high,fake,1.184115873,signal,1.654698709
-3,47,two_thresholds,0.5,2.5,1.5,high,real,0.022348762,not sure,-2.815293109
-3,48,two_thresholds,0.5,2.5,1.5,low,real,-1.481441902,noise,-2.031425308
-3,49,two_thresholds,0.5,2.5,1.5,low,real,0.437133754,not sure,0.596468532
-3,50,two_thresholds,0.5,2.5,1.5,low,real,-1.206342906,noise,-1.147688603
-3,51,two_thresholds,0.5,2.5,1.5,high,fake,0.811775061,noise,-0.280035109
-3,52,two_thresholds,0.5,2.5,1.5,high,real,-2.88955798,not sure,-1.47687809
-3,53,two_thresholds,0.5,2.5,1.5,high,fake,1.345526948,not sure,0.610591609
-3,54,two_thresholds,0.5,2.5,1.5,high,real,-3.127460817,signal,-1.621110686
-3,55,two_thresholds,0.5,2.5,1.5,high,fake,2.687781964,signal,2.200899659
-3,56,two_thresholds,0.5,2.5,1.5,low,fake,0.897239979,not sure,1.589124015
-3,57,two_thresholds,0.5,2.5,1.5,low,fake,1.849251021,not sure,0.388045018
-3,58,two_thresholds,0.5,2.5,1.5,low,real,-1.963881007,not sure,-0.54121725
-3,59,two_thresholds,0.5,2.5,1.5,high,real,0.067236771,noise,-0.24067597
-3,60,two_thresholds,0.5,2.5,1.5,low,real,-1.174447334,noise,-2.093141442
-3,61,two_thresholds,0.5,2.5,1.5,low,fake,2.031182653,signal,-0.811591105
-3,62,two_thresholds,0.5,2.5,1.5,low,real,-1.64753612,signal,-0.194687885
-3,63,two_thresholds,0.5,2.5,1.5,high,real,1.509018057,signal,0.30741575
-3,64,two_thresholds,0.5,2.5,1.5,high,real,-0.628995724,signal,-0.777056049
-3,65,two_thresholds,0.5,2.5,1.5,high,real,-0.386413682,signal,0.305663548
-3,66,two_thresholds,0.5,2.5,1.5,low,fake,0.996292162,signal,0.504252489
-3,67,two_thresholds,0.5,2.5,1.5,low,fake,1.451484094,not sure,0.261509397
-3,68,two_thresholds,0.5,2.5,1.5,low,real,-1.080590676,signal,-1.468031779
-3,69,two_thresholds,0.5,2.5,1.5,low,fake,0.724269375,noise,1.059128874
-3,70,two_thresholds,0.5,2.5,1.5,low,fake,1.213391562,signal,2.282446834
-3,71,two_thresholds,0.5,2.5,1.5,low,real,0.917615475,signal,-1.755962434
-3,72,two_thresholds,0.5,2.5,1.5,low,fake,1.019459679,signal,0.311012924
-3,73,two_thresholds,0.5,2.5,1.5,high,fake,0.318491967,noise,-0.291800892
-3,74,two_thresholds,0.5,2.5,1.5,low,fake,1.975625767,not sure,1.693336547
-3,75,two_thresholds,0.5,2.5,1.5,high,fake,1.837424876,signal,1.570131637
-3,76,two_thresholds,0.5,2.5,1.5,high,fake,0.065932553,not sure,2.594607211
-3,77,two_thresholds,0.5,2.5,1.5,low,real,-0.955291857,signal,-1.864582743
-3,78,two_thresholds,0.5,2.5,1.5,low,fake,2.991168417,signal,0.592712001
-3,79,two_thresholds,0.5,2.5,1.5,high,real,-0.767003173,not sure,0.564547119
-3,80,two_thresholds,0.5,2.5,1.5,high,real,-1.076257893,noise,-1.826791036
-3,81,two_thresholds,0.5,2.5,1.5,low,fake,1.22534851,not sure,1.430663509
-3,82,two_thresholds,0.5,2.5,1.5,low,real,-1.617218833,noise,0.154975367
-3,83,two_thresholds,0.5,2.5,1.5,high,real,-0.289875518,noise,-0.201370957
-3,84,two_thresholds,0.5,2.5,1.5,low,real,-1.982200438,not sure,-1.548495569
-3,85,two_thresholds,0.5,2.5,1.5,low,fake,1.258777876,signal,-0.561614818
-3,86,two_thresholds,0.5,2.5,1.5,high,fake,1.164594551,signal,3.568223689
-3,87,two_thresholds,0.5,2.5,1.5,low,real,-0.739636298,not sure,-0.596847223
-3,88,two_thresholds,0.5,2.5,1.5,low,fake,2.205931475,signal,-0.58381805
-3,89,two_thresholds,0.5,2.5,1.5,low,real,-1.910311047,not sure,2.139040693
-3,90,two_thresholds,0.5,2.5,1.5,high,fake,0.883431351,noise,0.450494709
-3,91,two_thresholds,0.5,2.5,1.5,high,fake,0.183591575,not sure,-0.714834504
-3,92,two_thresholds,0.5,2.5,1.5,low,fake,-0.214808566,noise,-0.73504359
-3,93,two_thresholds,0.5,2.5,1.5,high,fake,0.536322452,signal,-0.606263697
-3,94,two_thresholds,0.5,2.5,1.5,low,real,-2.815282979,signal,-2.441173452
-3,95,two_thresholds,0.5,2.5,1.5,high,fake,1.592896856,signal,1.158465733
-3,96,two_thresholds,0.5,2.5,1.5,high,real,-2.222919552,signal,1.584612733
-3,97,two_thresholds,0.5,2.5,1.5,low,fake,0.941919904,noise,0.076915492
-3,98,two_thresholds,0.5,2.5,1.5,high,fake,1.2512794,not sure,1.143388459
-3,99,two_thresholds,0.5,2.5,1.5,high,real,-2.37231858,signal,-2.007683098
-3,100,two_thresholds,0.5,2.5,1.5,low,fake,0.80915215,not sure,0.353593433
-3,101,two_thresholds,0.5,2.5,1.5,high,real,-0.532912297,not sure,-2.125013914
-3,102,two_thresholds,0.5,2.5,1.5,low,fake,2.314098532,noise,0.695366544
-3,103,two_thresholds,0.5,2.5,1.5,high,fake,1.016358903,signal,-0.197480042
-3,104,two_thresholds,0.5,2.5,1.5,low,real,-4.413443153,signal,0.047906211
-3,105,two_thresholds,0.5,2.5,1.5,low,real,-2.57874368,not sure,0.460676613
-3,106,two_thresholds,0.5,2.5,1.5,high,fake,0.987480181,noise,-0.722560652
-3,107,two_thresholds,0.5,2.5,1.5,high,real,-0.332999393,noise,1.179241914
-3,108,two_thresholds,0.5,2.5,1.5,low,fake,1.706584715,not sure,0.695829249
-3,109,two_thresholds,0.5,2.5,1.5,high,real,-0.120008193,not sure,-0.332841425
-3,110,two_thresholds,0.5,2.5,1.5,low,real,-0.732841613,noise,-0.1182842
-3,111,two_thresholds,0.5,2.5,1.5,high,real,-0.118191466,noise,0.154425614
-3,112,two_thresholds,0.5,2.5,1.5,high,fake,1.59765927,signal,1.848097499
-3,113,two_thresholds,0.5,2.5,1.5,low,fake,2.052350637,signal,-1.32248924
-3,114,two_thresholds,0.5,2.5,1.5,high,fake,2.188441797,noise,-1.097616716
-3,115,two_thresholds,0.5,2.5,1.5,high,real,-1.855032272,noise,-1.145204118
-3,116,two_thresholds,0.5,2.5,1.5,low,real,-1.883887276,signal,1.083052368
-3,117,two_thresholds,0.5,2.5,1.5,low,fake,1.067733559,not sure,1.924990625
-3,118,two_thresholds,0.5,2.5,1.5,high,fake,2.449506199,signal,1.719587121
-3,119,two_thresholds,0.5,2.5,1.5,high,real,-1.736369689,noise,-0.762754909
-3,120,two_thresholds,0.5,2.5,1.5,low,real,-1.099428958,not sure,-0.933612325
-4,1,two_thresholds,0.5,2.5,2.5,high,fake,2.067111791,signal,0.115604603
-4,2,two_thresholds,0.5,2.5,2.5,low,fake,1.058244866,noise,0.205566065
-4,3,two_thresholds,0.5,2.5,2.5,low,real,-2.626352506,not sure,-1.617934878
-4,4,two_thresholds,0.5,2.5,2.5,high,real,0.488737294,not sure,-2.178839906
-4,5,two_thresholds,0.5,2.5,2.5,low,real,-0.706156343,noise,-1.006037209
-4,6,two_thresholds,0.5,2.5,2.5,high,fake,1.816309206,noise,0.009975796
-4,7,two_thresholds,0.5,2.5,2.5,low,fake,3.552289557,not sure,0.214395606
-4,8,two_thresholds,0.5,2.5,2.5,high,fake,0.430499431,noise,1.276535846
-4,9,two_thresholds,0.5,2.5,2.5,high,real,-0.406453736,signal,-1.849430484
-4,10,two_thresholds,0.5,2.5,2.5,high,real,-1.273384014,not sure,-0.455798551
-4,11,two_thresholds,0.5,2.5,2.5,low,real,-0.083233275,noise,-1.183811043
-4,12,two_thresholds,0.5,2.5,2.5,high,real,-1.774594995,signal,-2.009019612
-4,13,two_thresholds,0.5,2.5,2.5,low,real,-0.487375472,signal,-1.11697334
-4,14,two_thresholds,0.5,2.5,2.5,low,real,-1.009934963,not sure,-1.339916633
-4,15,two_thresholds,0.5,2.5,2.5,high,real,-2.380552521,noise,-2.064153721
-4,16,two_thresholds,0.5,2.5,2.5,low,fake,0.688469469,not sure,-0.108111195
-4,17,two_thresholds,0.5,2.5,2.5,low,fake,0.551119514,signal,1.831532935
-4,18,two_thresholds,0.5,2.5,2.5,low,real,-0.832717618,signal,-1.65745912
-4,19,two_thresholds,0.5,2.5,2.5,low,fake,2.802914158,not sure,1.929265526
-4,20,two_thresholds,0.5,2.5,2.5,low,real,-1.90427123,signal,-0.608271443
-4,21,two_thresholds,0.5,2.5,2.5,low,real,-1.530357363,noise,-2.005171292
-4,22,two_thresholds,0.5,2.5,2.5,low,real,-0.8830411,noise,-1.408351593
-4,23,two_thresholds,0.5,2.5,2.5,low,real,-1.129507225,signal,-1.674038514
-4,24,two_thresholds,0.5,2.5,2.5,high,fake,1.186992378,not sure,1.411223398
-4,25,two_thresholds,0.5,2.5,2.5,low,fake,1.294129518,signal,0.989020602
-4,26,two_thresholds,0.5,2.5,2.5,low,real,-1.747702824,signal,-0.453964519
-4,27,two_thresholds,0.5,2.5,2.5,high,fake,0.403929252,not sure,-1.216713581
-4,28,two_thresholds,0.5,2.5,2.5,high,fake,0.857012686,not sure,1.19863805
-4,29,two_thresholds,0.5,2.5,2.5,high,fake,2.196428152,signal,1.055966601
-4,30,two_thresholds,0.5,2.5,2.5,low,real,-1.265465386,noise,-2.074945639
-4,31,two_thresholds,0.5,2.5,2.5,high,real,-4.22559681,signal,-0.51500941
-4,32,two_thresholds,0.5,2.5,2.5,high,real,-1.036782405,noise,-0.846268385
-4,33,two_thresholds,0.5,2.5,2.5,low,fake,-0.121675333,not sure,1.688841439
-4,34,two_thresholds,0.5,2.5,2.5,low,fake,-0.499662404,not sure,1.413592834
-4,35,two_thresholds,0.5,2.5,2.5,high,fake,1.38469785,signal,0.986193784
-4,36,two_thresholds,0.5,2.5,2.5,low,real,-0.340382873,not sure,-3.27187391
-4,37,two_thresholds,0.5,2.5,2.5,high,real,-1.636252736,not sure,-0.448801869
-4,38,two_thresholds,0.5,2.5,2.5,low,fake,3.255463906,signal,1.636397618
-4,39,two_thresholds,0.5,2.5,2.5,low,real,-0.804324879,noise,-0.151081079
-4,40,two_thresholds,0.5,2.5,2.5,low,real,-1.408320251,noise,-2.869109131
-4,41,two_thresholds,0.5,2.5,2.5,high,real,-0.431168477,not sure,-0.560751307
-4,42,two_thresholds,0.5,2.5,2.5,high,fake,0.790551066,noise,1.977187092
-4,43,two_thresholds,0.5,2.5,2.5,high,real,-1.508484269,noise,-0.798518204
-4,44,two_thresholds,0.5,2.5,2.5,high,fake,1.761498659,noise,-1.017715486
-4,45,two_thresholds,0.5,2.5,2.5,low,real,-0.558354956,signal,-1.312490597
-4,46,two_thresholds,0.5,2.5,2.5,high,fake,2.150931713,noise,3.689190578
-4,47,two_thresholds,0.5,2.5,2.5,high,fake,1.853317901,noise,2.296009759
-4,48,two_thresholds,0.5,2.5,2.5,low,fake,3.180359973,noise,0.560161251
-4,49,two_thresholds,0.5,2.5,2.5,high,real,-0.562614275,not sure,-0.664436702
-4,50,two_thresholds,0.5,2.5,2.5,high,real,0.017370189,signal,0.065717795
-4,51,two_thresholds,0.5,2.5,2.5,low,fake,0.270475207,signal,0.68299176
-4,52,two_thresholds,0.5,2.5,2.5,high,fake,1.553008666,signal,1.539852184
-4,53,two_thresholds,0.5,2.5,2.5,low,fake,0.233297719,signal,1.429455944
-4,54,two_thresholds,0.5,2.5,2.5,low,fake,-0.113932888,signal,3.238270922
-4,55,two_thresholds,0.5,2.5,2.5,high,real,-0.136007601,noise,-0.836722997
-4,56,two_thresholds,0.5,2.5,2.5,high,fake,0.89422688,noise,0.884503532
-4,57,two_thresholds,0.5,2.5,2.5,low,fake,1.396972359,not sure,1.319982904
-4,58,two_thresholds,0.5,2.5,2.5,low,real,0.304912253,noise,-1.068277776
-4,59,two_thresholds,0.5,2.5,2.5,high,real,-1.047212311,not sure,-1.536908776
-4,60,two_thresholds,0.5,2.5,2.5,low,real,-0.938535261,signal,-1.797525291
-4,61,two_thresholds,0.5,2.5,2.5,low,real,-1.009386977,signal,-1.61938404
-4,62,two_thresholds,0.5,2.5,2.5,low,real,-1.171019803,noise,-1.328634193
-4,63,two_thresholds,0.5,2.5,2.5,low,real,-3.431143055,not sure,-3.118258168
-4,64,two_thresholds,0.5,2.5,2.5,high,real,-0.944732148,noise,-0.833144019
-4,65,two_thresholds,0.5,2.5,2.5,high,fake,0.914583796,noise,1.215960804
-4,66,two_thresholds,0.5,2.5,2.5,low,fake,1.346261918,not sure,1.698524937
-4,67,two_thresholds,0.5,2.5,2.5,low,fake,1.928292487,noise,2.226590113
-4,68,two_thresholds,0.5,2.5,2.5,low,real,-1.384446666,noise,-0.635448981
-4,69,two_thresholds,0.5,2.5,2.5,high,real,-1.086863856,not sure,-0.593416392
-4,70,two_thresholds,0.5,2.5,2.5,high,fake,0.471056457,signal,1.577997667
-4,71,two_thresholds,0.5,2.5,2.5,high,real,-1.60408459,signal,-1.728234443
-4,72,two_thresholds,0.5,2.5,2.5,high,real,-1.692294596,noise,0.954958673
-4,73,two_thresholds,0.5,2.5,2.5,low,fake,2.73744851,noise,0.712480837
-4,74,two_thresholds,0.5,2.5,2.5,low,fake,1.637222308,noise,1.640532598
-4,75,two_thresholds,0.5,2.5,2.5,high,fake,1.622113082,not sure,0.626431866
-4,76,two_thresholds,0.5,2.5,2.5,high,real,-1.279777683,not sure,-1.329307914
-4,77,two_thresholds,0.5,2.5,2.5,high,real,-2.643047321,noise,-2.336945273
-4,78,two_thresholds,0.5,2.5,2.5,high,real,-3.315969538,signal,-1.546115594
-4,79,two_thresholds,0.5,2.5,2.5,high,real,0.071121164,not sure,0.409083765
-4,80,two_thresholds,0.5,2.5,2.5,low,real,-2.777118457,signal,-1.314373675
-4,81,two_thresholds,0.5,2.5,2.5,high,fake,1.167272963,not sure,1.191055335
-4,82,two_thresholds,0.5,2.5,2.5,high,fake,0.69575839,signal,0.410825766
-4,83,two_thresholds,0.5,2.5,2.5,high,fake,2.316708163,noise,0.557031443
-4,84,two_thresholds,0.5,2.5,2.5,high,fake,0.521503323,not sure,2.089408528
-4,85,two_thresholds,0.5,2.5,2.5,low,fake,2.585811529,not sure,1.438230754
-4,86,two_thresholds,0.5,2.5,2.5,low,fake,2.410644245,signal,-0.891785632
-4,87,two_thresholds,0.5,2.5,2.5,high,fake,0.483466698,not sure,0.362588491
-4,88,two_thresholds,0.5,2.5,2.5,high,fake,0.421068914,signal,2.753023996
-4,89,two_thresholds,0.5,2.5,2.5,low,fake,0.565737693,noise,1.393149921
-4,90,two_thresholds,0.5,2.5,2.5,high,fake,1.893462289,signal,1.364493073
-4,91,two_thresholds,0.5,2.5,2.5,low,real,-2.335669195,not sure,-0.611273313
-4,92,two_thresholds,0.5,2.5,2.5,low,real,-3.692460741,signal,-3.098162348
-4,93,two_thresholds,0.5,2.5,2.5,low,real,-0.192997193,not sure,0.160967195
-4,94,two_thresholds,0.5,2.5,2.5,high,real,0.889432081,signal,-1.079607178
-4,95,two_thresholds,0.5,2.5,2.5,low,fake,0.898701151,signal,-0.088203072
-4,96,two_thresholds,0.5,2.5,2.5,high,fake,1.648933173,signal,2.730419881
-4,97,two_thresholds,0.5,2.5,2.5,high,fake,1.19609877,signal,2.131894316
-4,98,two_thresholds,0.5,2.5,2.5,low,fake,1.554562134,not sure,1.253281392
-4,99,two_thresholds,0.5,2.5,2.5,low,fake,0.568533855,noise,1.647062585
-4,100,two_thresholds,0.5,2.5,2.5,high,real,-0.341744441,signal,-1.718108785
-4,101,two_thresholds,0.5,2.5,2.5,high,fake,1.51411033,noise,1.91554672
-4,102,two_thresholds,0.5,2.5,2.5,low,real,-0.563226871,not sure,-1.935066241
-4,103,two_thresholds,0.5,2.5,2.5,low,fake,0.665329105,signal,2.2654116
-4,104,two_thresholds,0.5,2.5,2.5,low,fake,0.909153602,signal,1.991033439
-4,105,two_thresholds,0.5,2.5,2.5,low,fake,0.361132176,not sure,0.659334199
-4,106,two_thresholds,0.5,2.5,2.5,high,fake,0.479552517,not sure,2.05637554
-4,107,two_thresholds,0.5,2.5,2.5,high,real,-0.998578213,noise,0.461877357
-4,108,two_thresholds,0.5,2.5,2.5,low,real,-2.071105433,noise,-2.528814792
-4,109,two_thresholds,0.5,2.5,2.5,high,fake,2.551087154,signal,0.522268075
-4,110,two_thresholds,0.5,2.5,2.5,high,fake,0.230747069,noise,2.739421746
-4,111,two_thresholds,0.5,2.5,2.5,low,real,-1.030544045,not sure,-1.220392625
-4,112,two_thresholds,0.5,2.5,2.5,high,real,-2.750668976,signal,-2.479295226
-4,113,two_thresholds,0.5,2.5,2.5,low,real,0.303009476,noise,-1.303389315
-4,114,two_thresholds,0.5,2.5,2.5,high,real,-2.111125796,noise,-0.045483864
-4,115,two_thresholds,0.5,2.5,2.5,high,fake,1.180649108,signal,0.98208331
-4,116,two_thresholds,0.5,2.5,2.5,high,fake,-0.63826373,noise,1.984428158
-4,117,two_thresholds,0.5,2.5,2.5,low,real,-2.512625623,not sure,-1.229196605
-4,118,two_thresholds,0.5,2.5,2.5,low,real,-0.722381408,not sure,-1.018009008
-4,119,two_thresholds,0.5,2.5,2.5,low,real,-0.736432155,not sure,-1.020649867
-4,120,two_thresholds,0.5,2.5,2.5,low,fake,1.26627957,not sure,0.605285245
+condition_id,item_id,architecture,ps,dprime_ai,dprime_human,thresholds_distance,aaa,true_label,x_ai,ai_classification,x_human
+1,1,two_thresholds,0.5,1.5,1.5,high,fake,signal,2.620500135,signal,0.2331276
+1,2,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.352462838,signal,0.316672528
+1,3,two_thresholds,0.5,1.5,1.5,high,real,noise,0.221842281,not sure,-0.789695554
+1,4,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.2854992,noise,0.974966421
+1,5,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.546411641,noise,2.864682667
+1,6,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.310381083,not sure,-2.037623104
+1,7,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.386298958,signal,0.759378845
+1,8,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.598855629,not sure,-0.946241272
+1,9,two_thresholds,0.5,1.5,1.5,low,real,noise,0.671835544,noise,-0.75068814
+1,10,two_thresholds,0.5,1.5,1.5,low,real,noise,1.829960173,noise,0.472399716
+1,11,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.007303153,signal,1.132904909
+1,12,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.072128989,not sure,2.23005314
+1,13,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.424826702,signal,0.393347824
+1,14,two_thresholds,0.5,1.5,1.5,high,real,noise,0.468071975,noise,-1.418215674
+1,15,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.03823185,not sure,0.958556031
+1,16,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.084046468,signal,-0.546096608
+1,17,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.365800372,not sure,1.704111643
+1,18,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.860067323,not sure,1.303090812
+1,19,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.238895263,noise,0.126942432
+1,20,two_thresholds,0.5,1.5,1.5,low,real,noise,-2.313499358,noise,0.355905873
+1,21,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.832782425,not sure,0.523625221
+1,22,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.046783526,not sure,0.84355284
+1,23,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.653524371,noise,-1.013901406
+1,24,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.686696769,signal,0.448822322
+1,25,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.678919994,noise,1.95099557
+1,26,two_thresholds,0.5,1.5,1.5,low,real,noise,0.566820135,noise,-1.221635314
+1,27,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.184417833,noise,0.505600612
+1,28,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.64794198,noise,0.714216516
+1,29,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.350532982,signal,0.688026437
+1,30,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.86306028,signal,-3.588878758
+1,31,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.135357013,not sure,0.559023507
+1,32,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.249424996,not sure,-1.567674833
+1,33,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.817445481,signal,1.061164582
+1,34,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.079426657,not sure,-1.672017122
+1,35,two_thresholds,0.5,1.5,1.5,high,real,noise,0.914918173,noise,-0.015917574
+1,36,two_thresholds,0.5,1.5,1.5,high,real,noise,0.641505547,not sure,-0.148828481
+1,37,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.308779672,not sure,1.610312887
+1,38,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.896437625,noise,-2.37396721
+1,39,two_thresholds,0.5,1.5,1.5,high,real,noise,-2.127220767,signal,-2.446687696
+1,40,two_thresholds,0.5,1.5,1.5,high,fake,signal,-1.02696103,signal,0.47251601
+1,41,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.704134467,noise,1.068343068
+1,42,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.415128109,signal,-0.405651275
+1,43,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.393506359,not sure,0.359617083
+1,44,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.280463478,not sure,-1.224987949
+1,45,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.918865111,signal,0.284840851
+1,46,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.513408619,not sure,-0.775475074
+1,47,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.188451881,signal,-0.733104657
+1,48,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.466633389,noise,-2.414867325
+1,49,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.832640911,noise,2.112980777
+1,50,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.947447816,noise,0.405032617
+1,51,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.393064822,noise,-0.560452492
+1,52,two_thresholds,0.5,1.5,1.5,low,fake,signal,-1.002801013,noise,0.555365527
+1,53,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.95368633,signal,0.374350738
+1,54,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.349881598,noise,-1.885833142
+1,55,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.931507497,not sure,1.573008851
+1,56,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.133512019,noise,-0.520959361
+1,57,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.637369376,not sure,0.149617197
+1,58,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.905410505,signal,1.713231767
+1,59,two_thresholds,0.5,1.5,1.5,low,fake,signal,-0.014197506,not sure,0.641596296
+1,60,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.497551598,noise,-1.168083386
+1,61,two_thresholds,0.5,1.5,1.5,low,real,noise,-2.966998947,not sure,-0.328537331
+1,62,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.053591266,not sure,0.540609806
+1,63,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.976153773,not sure,1.45999355
+1,64,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.044276,not sure,1.084016476
+1,65,two_thresholds,0.5,1.5,1.5,low,fake,signal,-0.461237752,noise,1.992470595
+1,66,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.012223312,not sure,0.48574962
+1,67,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.350957702,not sure,2.076370764
+1,68,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.137436866,signal,2.097088865
+1,69,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.944204279,not sure,-1.703564302
+1,70,two_thresholds,0.5,1.5,1.5,low,fake,signal,-1.326979722,signal,-0.613490369
+1,71,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.022871558,noise,-0.526233396
+1,72,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.486442822,noise,2.113898872
+1,73,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.579730428,noise,-0.471798728
+1,74,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.011950331,noise,-0.038724396
+1,75,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.347451965,noise,0.140767179
+1,76,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.613727607,noise,-2.589731533
+1,77,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.134029446,not sure,-0.279057352
+1,78,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.975641224,not sure,-0.195688061
+1,79,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.016498152,not sure,-0.231094889
+1,80,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.672810648,not sure,-1.549036685
+1,81,two_thresholds,0.5,1.5,1.5,low,real,noise,0.044577562,signal,-0.10701078
+1,82,two_thresholds,0.5,1.5,1.5,low,fake,signal,2.025105328,not sure,1.547377112
+1,83,two_thresholds,0.5,1.5,1.5,high,fake,signal,1.930917925,signal,0.849221546
+1,84,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.072990419,not sure,0.444672527
+1,85,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.995166964,not sure,-1.573772203
+1,86,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.406336641,noise,1.790983187
+1,87,two_thresholds,0.5,1.5,1.5,low,real,noise,0.034789345,signal,1.698315722
+1,88,two_thresholds,0.5,1.5,1.5,high,real,noise,1.0029275,not sure,-0.491100136
+1,89,two_thresholds,0.5,1.5,1.5,low,real,noise,-2.196213206,not sure,-1.007835346
+1,90,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.330372104,signal,0.644713893
+1,91,two_thresholds,0.5,1.5,1.5,low,real,noise,0.183298824,not sure,1.487940953
+1,92,two_thresholds,0.5,1.5,1.5,low,fake,signal,2.088277669,noise,0.19839325
+1,93,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.588561116,signal,0.584824569
+1,94,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.907409371,not sure,-1.567926391
+1,95,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.039602296,signal,0.038671731
+1,96,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.722113961,not sure,0.346283621
+1,97,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.880232042,signal,-2.759220539
+1,98,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.099301686,not sure,0.024236059
+1,99,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.326340049,not sure,0.590172565
+1,100,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.919628911,noise,-1.152889109
+1,101,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.781440336,not sure,-2.545105023
+1,102,two_thresholds,0.5,1.5,1.5,low,real,noise,-0.808431644,noise,-0.137575573
+1,103,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.592321209,not sure,1.698684964
+1,104,two_thresholds,0.5,1.5,1.5,high,fake,signal,-0.325073308,not sure,1.347053191
+1,105,two_thresholds,0.5,1.5,1.5,high,fake,signal,0.926625666,not sure,1.147942879
+1,106,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.884733165,not sure,-1.696019638
+1,107,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.1914449,signal,-0.263581706
+1,108,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.366186296,signal,-1.850859523
+1,109,two_thresholds,0.5,1.5,1.5,low,fake,signal,2.644392614,not sure,1.584776448
+1,110,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.428655747,signal,-0.729515546
+1,111,two_thresholds,0.5,1.5,1.5,low,real,noise,-1.16889081,not sure,-1.261556194
+1,112,two_thresholds,0.5,1.5,1.5,high,real,noise,-1.275506125,signal,-2.424981819
+1,113,two_thresholds,0.5,1.5,1.5,low,fake,signal,0.204194751,signal,1.336736932
+1,114,two_thresholds,0.5,1.5,1.5,high,real,noise,-2.047690525,signal,-0.591768144
+1,115,two_thresholds,0.5,1.5,1.5,high,real,noise,0.527100998,signal,0.95519518
+1,116,two_thresholds,0.5,1.5,1.5,low,real,noise,0.588789132,signal,-0.322774122
+1,117,two_thresholds,0.5,1.5,1.5,low,fake,signal,1.188622333,signal,-0.730019285
+1,118,two_thresholds,0.5,1.5,1.5,high,real,noise,-0.14048267,signal,-1.350887373
+1,119,two_thresholds,0.5,1.5,1.5,low,fake,signal,2.282737279,noise,0.272622546
+1,120,two_thresholds,0.5,1.5,1.5,low,real,noise,-3.201480727,not sure,-1.70292742
+2,1,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.960937966,noise,1.546274264
+2,2,two_thresholds,0.5,1.5,2.5,low,fake,signal,2.946097067,signal,0.0716679
+2,3,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.398255637,signal,-2.044166695
+2,4,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.568783457,not sure,2.039153848
+2,5,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.305663902,not sure,0.914567091
+2,6,two_thresholds,0.5,1.5,2.5,high,fake,signal,1.456068961,not sure,0.007938435
+2,7,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.210715699,signal,1.842412929
+2,8,two_thresholds,0.5,1.5,2.5,low,real,noise,0.914711882,noise,-2.362010482
+2,9,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.092853876,noise,-1.425904512
+2,10,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.358399275,signal,-0.243798841
+2,11,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.457341762,signal,-0.208672136
+2,12,two_thresholds,0.5,1.5,2.5,high,fake,signal,1.077840542,signal,0.369226396
+2,13,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.472568744,noise,1.314156989
+2,14,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.25215944,not sure,-1.354060284
+2,15,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.833348118,noise,-2.312410154
+2,16,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.64098521,signal,1.823004578
+2,17,two_thresholds,0.5,1.5,2.5,high,real,noise,-2.222013933,noise,-0.80774121
+2,18,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.172127265,noise,-0.035221892
+2,19,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.628534118,noise,-1.600811411
+2,20,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.693491321,noise,1.616009919
+2,21,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.759043252,noise,2.188510625
+2,22,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.98348224,not sure,-0.422533481
+2,23,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.656807395,noise,0.208389974
+2,24,two_thresholds,0.5,1.5,2.5,high,real,noise,0.435913075,signal,-1.730367911
+2,25,two_thresholds,0.5,1.5,2.5,high,real,noise,-3.451908384,not sure,-2.95093915
+2,26,two_thresholds,0.5,1.5,2.5,low,fake,signal,-0.2752363,noise,2.30979714
+2,27,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.359662775,signal,0.945075209
+2,28,two_thresholds,0.5,1.5,2.5,high,fake,signal,-0.732829897,noise,-1.264049991
+2,29,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.941604518,signal,1.658097445
+2,30,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.487191425,signal,1.681476571
+2,31,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.612939907,signal,-1.532332595
+2,32,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.870688648,not sure,-1.853127179
+2,33,two_thresholds,0.5,1.5,2.5,low,real,noise,-0.907919675,not sure,-2.686499421
+2,34,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.808371103,noise,0.369016158
+2,35,two_thresholds,0.5,1.5,2.5,high,real,noise,-2.571924342,not sure,-0.417467164
+2,36,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.889279613,not sure,-0.11299706
+2,37,two_thresholds,0.5,1.5,2.5,low,fake,signal,2.612696229,not sure,1.067196214
+2,38,two_thresholds,0.5,1.5,2.5,low,fake,signal,-0.061440491,not sure,1.699492799
+2,39,two_thresholds,0.5,1.5,2.5,low,real,noise,-0.514710009,not sure,-1.913305588
+2,40,two_thresholds,0.5,1.5,2.5,high,fake,signal,1.21616626,noise,1.850677254
+2,41,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.901520134,signal,0.457517266
+2,42,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.852220352,signal,-0.305502618
+2,43,two_thresholds,0.5,1.5,2.5,low,fake,signal,-1.284875167,not sure,0.821607438
+2,44,two_thresholds,0.5,1.5,2.5,low,real,noise,-0.814523542,signal,-0.303219959
+2,45,two_thresholds,0.5,1.5,2.5,low,real,noise,0.050396476,signal,-1.783965508
+2,46,two_thresholds,0.5,1.5,2.5,high,fake,signal,1.876761114,signal,1.050896484
+2,47,two_thresholds,0.5,1.5,2.5,low,real,noise,0.35307547,not sure,-0.210650488
+2,48,two_thresholds,0.5,1.5,2.5,high,real,noise,0.139523915,not sure,-1.209229234
+2,49,two_thresholds,0.5,1.5,2.5,high,real,noise,1.156836564,not sure,-0.646417965
+2,50,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.827031979,not sure,2.821497212
+2,51,two_thresholds,0.5,1.5,2.5,low,fake,signal,-0.188818673,not sure,0.922120611
+2,52,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.14672531,noise,1.500206116
+2,53,two_thresholds,0.5,1.5,2.5,low,real,noise,0.956466398,signal,-0.76684983
+2,54,two_thresholds,0.5,1.5,2.5,high,fake,signal,-0.127377021,noise,0.949172075
+2,55,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.212168935,noise,1.428568466
+2,56,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.374028075,signal,-0.347664524
+2,57,two_thresholds,0.5,1.5,2.5,high,real,noise,0.024189369,noise,-2.138961676
+2,58,two_thresholds,0.5,1.5,2.5,high,real,noise,-2.202638611,noise,-2.586093914
+2,59,two_thresholds,0.5,1.5,2.5,high,fake,signal,1.261695514,noise,2.338977349
+2,60,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.39488043,not sure,-1.739646429
+2,61,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.247837306,signal,0.796006947
+2,62,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.600257224,noise,-0.076601958
+2,63,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.599347991,signal,-0.671962687
+2,64,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.0473402,noise,-1.846250566
+2,65,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.846926866,not sure,-1.036439749
+2,66,two_thresholds,0.5,1.5,2.5,low,real,noise,-0.879445835,signal,-1.772617058
+2,67,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.53693232,not sure,-0.648185515
+2,68,two_thresholds,0.5,1.5,2.5,high,fake,signal,1.669823383,not sure,-0.550207951
+2,69,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.279248841,noise,-1.920699447
+2,70,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.226633767,not sure,-1.657627248
+2,71,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.113050485,not sure,0.604716282
+2,72,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.637019784,noise,2.625572235
+2,73,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.638204183,noise,2.774253642
+2,74,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.416763857,not sure,2.327828318
+2,75,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.90197234,not sure,-0.061329522
+2,76,two_thresholds,0.5,1.5,2.5,low,real,noise,-0.756521962,signal,-0.048605924
+2,77,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.414919366,noise,2.074755477
+2,78,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.427721792,not sure,1.911898672
+2,79,two_thresholds,0.5,1.5,2.5,low,fake,signal,-0.922294567,signal,0.920077564
+2,80,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.507606984,signal,-1.752253151
+2,81,two_thresholds,0.5,1.5,2.5,high,fake,signal,-0.076058976,noise,1.304526881
+2,82,two_thresholds,0.5,1.5,2.5,low,real,noise,1.174485673,noise,-1.872487013
+2,83,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.139051516,noise,-1.634606947
+2,84,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.103178631,not sure,0.371315502
+2,85,two_thresholds,0.5,1.5,2.5,low,fake,signal,-0.020266011,not sure,0.998138747
+2,86,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.684586375,noise,0.469526647
+2,87,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.965533862,noise,0.097756012
+2,88,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.669875593,not sure,2.353400257
+2,89,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.507721684,noise,1.540206264
+2,90,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.041698795,not sure,0.365858716
+2,91,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.906081117,noise,-1.330729028
+2,92,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.837811898,noise,2.94969531
+2,93,two_thresholds,0.5,1.5,2.5,high,fake,signal,-0.321676028,not sure,0.801564228
+2,94,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.143225763,noise,0.489112666
+2,95,two_thresholds,0.5,1.5,2.5,high,real,noise,2.331217882,noise,-2.492251856
+2,96,two_thresholds,0.5,1.5,2.5,high,real,noise,0.605999942,not sure,-1.994235031
+2,97,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.509502365,not sure,-2.100686747
+2,98,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.970981896,noise,-1.309162103
+2,99,two_thresholds,0.5,1.5,2.5,low,real,noise,0.22919949,not sure,0.003990326
+2,100,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.309882397,signal,3.384047522
+2,101,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.912571079,not sure,2.60391404
+2,102,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.746373224,signal,-0.752659067
+2,103,two_thresholds,0.5,1.5,2.5,low,real,noise,0.034787703,signal,-0.575880254
+2,104,two_thresholds,0.5,1.5,2.5,low,real,noise,0.079898511,noise,-1.590910682
+2,105,two_thresholds,0.5,1.5,2.5,low,real,noise,0.259772554,signal,-0.737589375
+2,106,two_thresholds,0.5,1.5,2.5,low,fake,signal,2.197793821,noise,2.941757822
+2,107,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.043093816,noise,-0.195041978
+2,108,two_thresholds,0.5,1.5,2.5,high,fake,signal,-0.64990689,noise,0.372958004
+2,109,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.070295271,not sure,0.988347176
+2,110,two_thresholds,0.5,1.5,2.5,low,real,noise,-1.458035646,not sure,-3.028432023
+2,111,two_thresholds,0.5,1.5,2.5,low,real,noise,-0.57681911,signal,-0.568765974
+2,112,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.962191843,not sure,-2.176471078
+2,113,two_thresholds,0.5,1.5,2.5,low,fake,signal,0.134440115,not sure,2.906004137
+2,114,two_thresholds,0.5,1.5,2.5,high,fake,signal,0.212099562,noise,2.207325954
+2,115,two_thresholds,0.5,1.5,2.5,high,fake,signal,3.359760343,noise,1.070212544
+2,116,two_thresholds,0.5,1.5,2.5,high,real,noise,-1.715417232,signal,-1.834401865
+2,117,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.670799894,not sure,-0.810580207
+2,118,two_thresholds,0.5,1.5,2.5,high,real,noise,0.26905825,signal,-1.723678272
+2,119,two_thresholds,0.5,1.5,2.5,high,real,noise,-0.53899873,not sure,-2.642781451
+2,120,two_thresholds,0.5,1.5,2.5,low,fake,signal,1.284141047,signal,0.663278385
+3,1,two_thresholds,0.5,2.5,1.5,high,fake,signal,3.157289639,not sure,-0.778806188
+3,2,two_thresholds,0.5,2.5,1.5,high,real,noise,-2.233331933,noise,-0.251887346
+3,3,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.135838802,not sure,1.137350572
+3,4,two_thresholds,0.5,2.5,1.5,low,fake,signal,2.386579013,signal,2.615053095
+3,5,two_thresholds,0.5,2.5,1.5,high,fake,signal,2.767493412,signal,-0.249126628
+3,6,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.80567535,noise,1.804005881
+3,7,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.862136997,not sure,-1.962164342
+3,8,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.329838163,signal,-1.031155491
+3,9,two_thresholds,0.5,2.5,1.5,low,real,noise,-2.083989099,signal,-0.651361858
+3,10,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.604784779,not sure,0.165831497
+3,11,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.878981498,signal,-0.085934199
+3,12,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.737424991,signal,2.153449599
+3,13,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.377421907,not sure,-0.554315805
+3,14,two_thresholds,0.5,2.5,1.5,high,real,noise,0.16828256,not sure,-2.479975427
+3,15,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.372906676,noise,1.855181475
+3,16,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.311178929,noise,1.429300473
+3,17,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.581219272,noise,0.546335996
+3,18,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.096500883,noise,1.455895051
+3,19,two_thresholds,0.5,2.5,1.5,high,real,noise,0.586818211,not sure,-2.283650367
+3,20,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.834224971,signal,0.807221822
+3,21,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.78927014,not sure,1.14778936
+3,22,two_thresholds,0.5,2.5,1.5,low,real,noise,-2.49917913,noise,-1.065939772
+3,23,two_thresholds,0.5,2.5,1.5,low,real,noise,0.341052799,noise,-1.165948704
+3,24,two_thresholds,0.5,2.5,1.5,high,fake,signal,-0.508979527,noise,1.840176223
+3,25,two_thresholds,0.5,2.5,1.5,low,real,noise,-0.344167446,signal,0.191785467
+3,26,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.638866098,signal,0.53856326
+3,27,two_thresholds,0.5,2.5,1.5,high,real,noise,-2.600180577,not sure,-0.207689572
+3,28,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.110259528,noise,-2.549699381
+3,29,two_thresholds,0.5,2.5,1.5,low,fake,signal,-0.526776985,noise,0.151682526
+3,30,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.074315233,noise,1.457377552
+3,31,two_thresholds,0.5,2.5,1.5,high,fake,signal,-0.227928443,noise,1.237061825
+3,32,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.962976671,not sure,-1.412244665
+3,33,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.748705405,not sure,-0.865227303
+3,34,two_thresholds,0.5,2.5,1.5,high,fake,signal,2.228956841,signal,2.216387072
+3,35,two_thresholds,0.5,2.5,1.5,high,fake,signal,-0.73091848,signal,-0.4504964
+3,36,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.067209551,noise,-1.863193552
+3,37,two_thresholds,0.5,2.5,1.5,low,real,noise,-0.62624568,noise,-0.616029062
+3,38,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.901383003,signal,-1.742221693
+3,39,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.587423583,signal,-0.568668258
+3,40,two_thresholds,0.5,2.5,1.5,high,real,noise,0.601588039,not sure,0.02852887
+3,41,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.547423856,signal,-0.262473416
+3,42,two_thresholds,0.5,2.5,1.5,high,real,noise,-3.265305342,not sure,-1.663421199
+3,43,two_thresholds,0.5,2.5,1.5,high,real,noise,-3.567287639,not sure,0.031500207
+3,44,two_thresholds,0.5,2.5,1.5,high,fake,signal,2.756283417,noise,-0.038330458
+3,45,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.415534823,noise,1.026315802
+3,46,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.184115873,signal,1.654698709
+3,47,two_thresholds,0.5,2.5,1.5,high,real,noise,0.022348762,not sure,-2.815293109
+3,48,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.481441902,noise,-2.031425308
+3,49,two_thresholds,0.5,2.5,1.5,low,real,noise,0.437133754,not sure,0.596468532
+3,50,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.206342906,noise,-1.147688603
+3,51,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.811775061,noise,-0.280035109
+3,52,two_thresholds,0.5,2.5,1.5,high,real,noise,-2.88955798,not sure,-1.47687809
+3,53,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.345526948,not sure,0.610591609
+3,54,two_thresholds,0.5,2.5,1.5,high,real,noise,-3.127460817,signal,-1.621110686
+3,55,two_thresholds,0.5,2.5,1.5,high,fake,signal,2.687781964,signal,2.200899659
+3,56,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.897239979,not sure,1.589124015
+3,57,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.849251021,not sure,0.388045018
+3,58,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.963881007,not sure,-0.54121725
+3,59,two_thresholds,0.5,2.5,1.5,high,real,noise,0.067236771,noise,-0.24067597
+3,60,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.174447334,noise,-2.093141442
+3,61,two_thresholds,0.5,2.5,1.5,low,fake,signal,2.031182653,signal,-0.811591105
+3,62,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.64753612,signal,-0.194687885
+3,63,two_thresholds,0.5,2.5,1.5,high,real,noise,1.509018057,signal,0.30741575
+3,64,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.628995724,signal,-0.777056049
+3,65,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.386413682,signal,0.305663548
+3,66,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.996292162,signal,0.504252489
+3,67,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.451484094,not sure,0.261509397
+3,68,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.080590676,signal,-1.468031779
+3,69,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.724269375,noise,1.059128874
+3,70,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.213391562,signal,2.282446834
+3,71,two_thresholds,0.5,2.5,1.5,low,real,noise,0.917615475,signal,-1.755962434
+3,72,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.019459679,signal,0.311012924
+3,73,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.318491967,noise,-0.291800892
+3,74,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.975625767,not sure,1.693336547
+3,75,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.837424876,signal,1.570131637
+3,76,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.065932553,not sure,2.594607211
+3,77,two_thresholds,0.5,2.5,1.5,low,real,noise,-0.955291857,signal,-1.864582743
+3,78,two_thresholds,0.5,2.5,1.5,low,fake,signal,2.991168417,signal,0.592712001
+3,79,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.767003173,not sure,0.564547119
+3,80,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.076257893,noise,-1.826791036
+3,81,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.22534851,not sure,1.430663509
+3,82,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.617218833,noise,0.154975367
+3,83,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.289875518,noise,-0.201370957
+3,84,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.982200438,not sure,-1.548495569
+3,85,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.258777876,signal,-0.561614818
+3,86,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.164594551,signal,3.568223689
+3,87,two_thresholds,0.5,2.5,1.5,low,real,noise,-0.739636298,not sure,-0.596847223
+3,88,two_thresholds,0.5,2.5,1.5,low,fake,signal,2.205931475,signal,-0.58381805
+3,89,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.910311047,not sure,2.139040693
+3,90,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.883431351,noise,0.450494709
+3,91,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.183591575,not sure,-0.714834504
+3,92,two_thresholds,0.5,2.5,1.5,low,fake,signal,-0.214808566,noise,-0.73504359
+3,93,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.536322452,signal,-0.606263697
+3,94,two_thresholds,0.5,2.5,1.5,low,real,noise,-2.815282979,signal,-2.441173452
+3,95,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.592896856,signal,1.158465733
+3,96,two_thresholds,0.5,2.5,1.5,high,real,noise,-2.222919552,signal,1.584612733
+3,97,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.941919904,noise,0.076915492
+3,98,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.2512794,not sure,1.143388459
+3,99,two_thresholds,0.5,2.5,1.5,high,real,noise,-2.37231858,signal,-2.007683098
+3,100,two_thresholds,0.5,2.5,1.5,low,fake,signal,0.80915215,not sure,0.353593433
+3,101,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.532912297,not sure,-2.125013914
+3,102,two_thresholds,0.5,2.5,1.5,low,fake,signal,2.314098532,noise,0.695366544
+3,103,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.016358903,signal,-0.197480042
+3,104,two_thresholds,0.5,2.5,1.5,low,real,noise,-4.413443153,signal,0.047906211
+3,105,two_thresholds,0.5,2.5,1.5,low,real,noise,-2.57874368,not sure,0.460676613
+3,106,two_thresholds,0.5,2.5,1.5,high,fake,signal,0.987480181,noise,-0.722560652
+3,107,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.332999393,noise,1.179241914
+3,108,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.706584715,not sure,0.695829249
+3,109,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.120008193,not sure,-0.332841425
+3,110,two_thresholds,0.5,2.5,1.5,low,real,noise,-0.732841613,noise,-0.1182842
+3,111,two_thresholds,0.5,2.5,1.5,high,real,noise,-0.118191466,noise,0.154425614
+3,112,two_thresholds,0.5,2.5,1.5,high,fake,signal,1.59765927,signal,1.848097499
+3,113,two_thresholds,0.5,2.5,1.5,low,fake,signal,2.052350637,signal,-1.32248924
+3,114,two_thresholds,0.5,2.5,1.5,high,fake,signal,2.188441797,noise,-1.097616716
+3,115,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.855032272,noise,-1.145204118
+3,116,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.883887276,signal,1.083052368
+3,117,two_thresholds,0.5,2.5,1.5,low,fake,signal,1.067733559,not sure,1.924990625
+3,118,two_thresholds,0.5,2.5,1.5,high,fake,signal,2.449506199,signal,1.719587121
+3,119,two_thresholds,0.5,2.5,1.5,high,real,noise,-1.736369689,noise,-0.762754909
+3,120,two_thresholds,0.5,2.5,1.5,low,real,noise,-1.099428958,not sure,-0.933612325
+4,1,two_thresholds,0.5,2.5,2.5,high,fake,signal,2.067111791,signal,0.115604603
+4,2,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.058244866,noise,0.205566065
+4,3,two_thresholds,0.5,2.5,2.5,low,real,noise,-2.626352506,not sure,-1.617934878
+4,4,two_thresholds,0.5,2.5,2.5,high,real,noise,0.488737294,not sure,-2.178839906
+4,5,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.706156343,noise,-1.006037209
+4,6,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.816309206,noise,0.009975796
+4,7,two_thresholds,0.5,2.5,2.5,low,fake,signal,3.552289557,not sure,0.214395606
+4,8,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.430499431,noise,1.276535846
+4,9,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.406453736,signal,-1.849430484
+4,10,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.273384014,not sure,-0.455798551
+4,11,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.083233275,noise,-1.183811043
+4,12,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.774594995,signal,-2.009019612
+4,13,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.487375472,signal,-1.11697334
+4,14,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.009934963,not sure,-1.339916633
+4,15,two_thresholds,0.5,2.5,2.5,high,real,noise,-2.380552521,noise,-2.064153721
+4,16,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.688469469,not sure,-0.108111195
+4,17,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.551119514,signal,1.831532935
+4,18,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.832717618,signal,-1.65745912
+4,19,two_thresholds,0.5,2.5,2.5,low,fake,signal,2.802914158,not sure,1.929265526
+4,20,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.90427123,signal,-0.608271443
+4,21,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.530357363,noise,-2.005171292
+4,22,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.8830411,noise,-1.408351593
+4,23,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.129507225,signal,-1.674038514
+4,24,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.186992378,not sure,1.411223398
+4,25,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.294129518,signal,0.989020602
+4,26,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.747702824,signal,-0.453964519
+4,27,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.403929252,not sure,-1.216713581
+4,28,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.857012686,not sure,1.19863805
+4,29,two_thresholds,0.5,2.5,2.5,high,fake,signal,2.196428152,signal,1.055966601
+4,30,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.265465386,noise,-2.074945639
+4,31,two_thresholds,0.5,2.5,2.5,high,real,noise,-4.22559681,signal,-0.51500941
+4,32,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.036782405,noise,-0.846268385
+4,33,two_thresholds,0.5,2.5,2.5,low,fake,signal,-0.121675333,not sure,1.688841439
+4,34,two_thresholds,0.5,2.5,2.5,low,fake,signal,-0.499662404,not sure,1.413592834
+4,35,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.38469785,signal,0.986193784
+4,36,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.340382873,not sure,-3.27187391
+4,37,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.636252736,not sure,-0.448801869
+4,38,two_thresholds,0.5,2.5,2.5,low,fake,signal,3.255463906,signal,1.636397618
+4,39,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.804324879,noise,-0.151081079
+4,40,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.408320251,noise,-2.869109131
+4,41,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.431168477,not sure,-0.560751307
+4,42,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.790551066,noise,1.977187092
+4,43,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.508484269,noise,-0.798518204
+4,44,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.761498659,noise,-1.017715486
+4,45,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.558354956,signal,-1.312490597
+4,46,two_thresholds,0.5,2.5,2.5,high,fake,signal,2.150931713,noise,3.689190578
+4,47,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.853317901,noise,2.296009759
+4,48,two_thresholds,0.5,2.5,2.5,low,fake,signal,3.180359973,noise,0.560161251
+4,49,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.562614275,not sure,-0.664436702
+4,50,two_thresholds,0.5,2.5,2.5,high,real,noise,0.017370189,signal,0.065717795
+4,51,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.270475207,signal,0.68299176
+4,52,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.553008666,signal,1.539852184
+4,53,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.233297719,signal,1.429455944
+4,54,two_thresholds,0.5,2.5,2.5,low,fake,signal,-0.113932888,signal,3.238270922
+4,55,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.136007601,noise,-0.836722997
+4,56,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.89422688,noise,0.884503532
+4,57,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.396972359,not sure,1.319982904
+4,58,two_thresholds,0.5,2.5,2.5,low,real,noise,0.304912253,noise,-1.068277776
+4,59,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.047212311,not sure,-1.536908776
+4,60,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.938535261,signal,-1.797525291
+4,61,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.009386977,signal,-1.61938404
+4,62,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.171019803,noise,-1.328634193
+4,63,two_thresholds,0.5,2.5,2.5,low,real,noise,-3.431143055,not sure,-3.118258168
+4,64,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.944732148,noise,-0.833144019
+4,65,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.914583796,noise,1.215960804
+4,66,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.346261918,not sure,1.698524937
+4,67,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.928292487,noise,2.226590113
+4,68,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.384446666,noise,-0.635448981
+4,69,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.086863856,not sure,-0.593416392
+4,70,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.471056457,signal,1.577997667
+4,71,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.60408459,signal,-1.728234443
+4,72,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.692294596,noise,0.954958673
+4,73,two_thresholds,0.5,2.5,2.5,low,fake,signal,2.73744851,noise,0.712480837
+4,74,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.637222308,noise,1.640532598
+4,75,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.622113082,not sure,0.626431866
+4,76,two_thresholds,0.5,2.5,2.5,high,real,noise,-1.279777683,not sure,-1.329307914
+4,77,two_thresholds,0.5,2.5,2.5,high,real,noise,-2.643047321,noise,-2.336945273
+4,78,two_thresholds,0.5,2.5,2.5,high,real,noise,-3.315969538,signal,-1.546115594
+4,79,two_thresholds,0.5,2.5,2.5,high,real,noise,0.071121164,not sure,0.409083765
+4,80,two_thresholds,0.5,2.5,2.5,low,real,noise,-2.777118457,signal,-1.314373675
+4,81,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.167272963,not sure,1.191055335
+4,82,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.69575839,signal,0.410825766
+4,83,two_thresholds,0.5,2.5,2.5,high,fake,signal,2.316708163,noise,0.557031443
+4,84,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.521503323,not sure,2.089408528
+4,85,two_thresholds,0.5,2.5,2.5,low,fake,signal,2.585811529,not sure,1.438230754
+4,86,two_thresholds,0.5,2.5,2.5,low,fake,signal,2.410644245,signal,-0.891785632
+4,87,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.483466698,not sure,0.362588491
+4,88,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.421068914,signal,2.753023996
+4,89,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.565737693,noise,1.393149921
+4,90,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.893462289,signal,1.364493073
+4,91,two_thresholds,0.5,2.5,2.5,low,real,noise,-2.335669195,not sure,-0.611273313
+4,92,two_thresholds,0.5,2.5,2.5,low,real,noise,-3.692460741,signal,-3.098162348
+4,93,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.192997193,not sure,0.160967195
+4,94,two_thresholds,0.5,2.5,2.5,high,real,noise,0.889432081,signal,-1.079607178
+4,95,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.898701151,signal,-0.088203072
+4,96,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.648933173,signal,2.730419881
+4,97,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.19609877,signal,2.131894316
+4,98,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.554562134,not sure,1.253281392
+4,99,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.568533855,noise,1.647062585
+4,100,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.341744441,signal,-1.718108785
+4,101,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.51411033,noise,1.91554672
+4,102,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.563226871,not sure,-1.935066241
+4,103,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.665329105,signal,2.2654116
+4,104,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.909153602,signal,1.991033439
+4,105,two_thresholds,0.5,2.5,2.5,low,fake,signal,0.361132176,not sure,0.659334199
+4,106,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.479552517,not sure,2.05637554
+4,107,two_thresholds,0.5,2.5,2.5,high,real,noise,-0.998578213,noise,0.461877357
+4,108,two_thresholds,0.5,2.5,2.5,low,real,noise,-2.071105433,noise,-2.528814792
+4,109,two_thresholds,0.5,2.5,2.5,high,fake,signal,2.551087154,signal,0.522268075
+4,110,two_thresholds,0.5,2.5,2.5,high,fake,signal,0.230747069,noise,2.739421746
+4,111,two_thresholds,0.5,2.5,2.5,low,real,noise,-1.030544045,not sure,-1.220392625
+4,112,two_thresholds,0.5,2.5,2.5,high,real,noise,-2.750668976,signal,-2.479295226
+4,113,two_thresholds,0.5,2.5,2.5,low,real,noise,0.303009476,noise,-1.303389315
+4,114,two_thresholds,0.5,2.5,2.5,high,real,noise,-2.111125796,noise,-0.045483864
+4,115,two_thresholds,0.5,2.5,2.5,high,fake,signal,1.180649108,signal,0.98208331
+4,116,two_thresholds,0.5,2.5,2.5,high,fake,signal,-0.63826373,noise,1.984428158
+4,117,two_thresholds,0.5,2.5,2.5,low,real,noise,-2.512625623,not sure,-1.229196605
+4,118,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.722381408,not sure,-1.018009008
+4,119,two_thresholds,0.5,2.5,2.5,low,real,noise,-0.736432155,not sure,-1.020649867
+4,120,two_thresholds,0.5,2.5,2.5,low,fake,signal,1.26627957,not sure,0.605285245
