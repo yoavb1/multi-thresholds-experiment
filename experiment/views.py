@@ -405,15 +405,15 @@ def landing_page(request):
         csv_row_id = experiment_data.csv_row_id
         if csv_row_id:
             # Load trials from their assigned row
-            events_data, condition_id, ps, dprime_h, dprime_s, thresh_dist, architecture = load_block_trials(csv_row_id=csv_row_id)
+            events_data, condition_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(csv_row_id=csv_row_id)
         else:
             # Old record without csv_row_id - assign new row
-            events_data, condition_id, ps, dprime_h, dprime_s, thresh_dist, architecture = load_block_trials()
+            events_data, condition_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
             experiment_data.csv_row_id = csv_row_id
             experiment_data.ps = ps
             experiment_data.human_sensitivity = dprime_h
             experiment_data.ds_sensitivity = dprime_s
-            experiment_data.thresh_dist = thresh_dist
+            experiment_data.thresholds_distance = thresholds_distance
             experiment_data.architecture = architecture
             experiment_data.save()
 
@@ -423,7 +423,7 @@ def landing_page(request):
         request.session["ps"] = float(ps)
         request.session["human_sensitivity"] = float(dprime_h)
         request.session["ds_sensitivity"] = float(dprime_s)
-        request.session["thresh_dist"] = thresh_dist
+        request.session["thresholds_distance"] = thresholds_distance
         request.session["architecture"] = architecture
         request.session["events_data"] = events_data
         request.session["csv_row_id"] = csv_row_id
@@ -436,7 +436,7 @@ def landing_page(request):
         logger.info(f"Creating new user with AID: {aid}")
 
         try:
-            events_data, csv_row_id, ps, dprime_h, dprime_s, thresh_dist, architecture = load_block_trials()
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
             logger.info(f"Assigned CSV row {csv_row_id} to AID {aid}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to load_block_trials for AID {aid}: {e}")
@@ -468,7 +468,7 @@ def landing_page(request):
                     'human_sensitivity': dprime_h,
                     'ds_sensitivity': dprime_s,
                     'architecture': architecture,
-                    'thresh_dist': thresh_dist,
+                    'thresholds_distance': thresholds_distance,
                     'csv_row_id': csv_row_id,
                     'complete': False
                 }
@@ -486,7 +486,7 @@ def landing_page(request):
             # Reset our row back to available since we won't use it
             mark_row_as_available(csv_row_id)
             csv_row_id = experiment_data.csv_row_id
-            events_data, condition_id, ps, dprime_h, dprime_s, thresh_dist, architecture = load_block_trials(csv_row_id=csv_row_id)
+            events_data, condition_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(csv_row_id=csv_row_id)
             logger.info(f"User already existed, restored from row {csv_row_id}")
 
         # Store in session
@@ -495,7 +495,7 @@ def landing_page(request):
         request.session["ps"] = float(ps)
         request.session["human_sensitivity"] = float(dprime_h)
         request.session["ds_sensitivity"] = float(dprime_s)
-        request.session["thresh_dist"] = thresh_dist
+        request.session["thresholds_distance"] = thresholds_distance
         request.session["architecture"] = architecture
         request.session["events_data"] = events_data
         request.session["csv_row_id"] = csv_row_id
