@@ -57,7 +57,7 @@ def load_block_trials(csv_row_id=None) -> tuple:
     STIMULI_SCALAR = 6.5
 
     # 1. Update the directory path and target name
-    csv_path = os.path.join(settings.BASE_DIR, "DATA", "data.csv")
+    csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
     lock_path = csv_path + ".lock"
 
     if not os.path.exists(csv_path):
@@ -161,7 +161,7 @@ def mark_row_in_progress(csv_row_id: int):
     This function is kept for backwards compatibility but should not be called for new users.
     """
     if csv_row_id:
-        csv_path = os.path.join(settings.BASE_DIR, "DATA", "conditions_experiment_3ps_11x11_120_A.csv")
+        csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
 
         if not os.path.exists(csv_path):
             logger.error(f"CRITICAL: CSV not found at {csv_path} in mark_row_in_progress")
@@ -190,7 +190,7 @@ def mark_row_as_used(user_id: int):
     csv_row_id = experiment_data.csv_row_id
 
     if csv_row_id:
-        csv_path = os.path.join(settings.BASE_DIR, "DATA", "conditions_experiment_3ps_11x11_120_A.csv")
+        csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
         lock_path = csv_path + ".lock"
 
         with FileLock(lock_path, timeout=30):
@@ -217,7 +217,7 @@ def mark_row_as_available(csv_row_id: int):
     Called when incomplete user is detected.
     """
     if csv_row_id:
-        csv_path = os.path.join(settings.BASE_DIR, "DATA", "conditions_experiment_3ps_11x11_120_A.csv")
+        csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
         lock_path = csv_path + ".lock"
 
         with FileLock(lock_path, timeout=30):
@@ -238,7 +238,7 @@ def _reset_abandoned_rows():
 
     OPTIMIZATION: First check without lock, only acquire lock if there's work to do.
     """
-    csv_path = os.path.join(settings.BASE_DIR, "DATA", "conditions_experiment_3ps_11x11_120_A.csv")
+    csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
     lock_path = csv_path + ".lock"
 
     # Quick check without lock - just read to see if there's any work to do
