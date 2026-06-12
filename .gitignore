@@ -2,7 +2,3 @@
 __pycache__/
 db.sqlite3
 .idea/
-.DS_Store
-DATA/*.lock
-DATA/landing_attempts.csv
-DATA/devtools_log.csv

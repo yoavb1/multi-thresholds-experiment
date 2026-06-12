@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-s6g8q#qc-nxmjuqhuqd+hdpesyt62uqld0h^p$%=h6m-ei*^(_
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'IWiTLab.pythonanywhere.com',
+    'iwitlab.pythonanywhere.com',
     'localhost',
     '127.0.0.1',
 ]

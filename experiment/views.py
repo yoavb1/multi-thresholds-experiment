@@ -441,7 +441,7 @@ def landing_page(request):
         except Exception as e:
             logger.error(f"CRITICAL: Failed to load_block_trials for AID {aid}: {e}")
             # Log the error to a file for debugging
-            error_log_path = os.path.join(settings.BASE_DIR, 'DATA', 'csv_errors.log')
+            error_log_path = os.path.join(settings.BASE_DIR, 'data', 'csv_errors.log')
             with open(error_log_path, 'a') as f:
                 f.write(f"{datetime.datetime.now().isoformat()} - load_block_trials failed for {aid}: {e}\n")
             raise  # Re-raise so we can see the error
@@ -476,7 +476,7 @@ def landing_page(request):
             logger.info(f"Created user record: user_id={experiment_data.user_id}, created={created}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to create ExperimentData for AID {aid}: {e}")
-            error_log_path = os.path.join(settings.BASE_DIR, 'DATA', 'csv_errors.log')
+            error_log_path = os.path.join(settings.BASE_DIR, 'data', 'csv_errors.log')
             with open(error_log_path, 'a') as f:
                 f.write(f"{datetime.datetime.now().isoformat()} - ExperimentData creation failed for {aid}: {e}\n")
             raise
