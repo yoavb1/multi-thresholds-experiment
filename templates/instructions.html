@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Global styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Container styling (same as landing page) */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li p {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding: 0;
+            width: 100%;
+        }
+
+        .button {
+            flex: 0 0 auto;  /* Keep natural size and stay centered */
+            min-width: 120px;
+            padding: 15px 25px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .button.back {
+            background-color: #95a5a6;  /* Gray for back button */
+            order: 1;  /* Always on left */
+        }
+        
+        .button.back:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .button.next, .button.continue {
+            background-color: #3498db;  /* Blue for next/continue button */
+            order: 2;  /* Always on right */
+        }
+        
+        .button.next:hover, .button.continue:hover {
+            background-color: #2980b9;
+        }
+        
+        .button.start {
+            background-color: #27ae60;  /* Green for start button */
+            order: 2;
+        }
+        
+        .button.start:hover {
+            background-color: #229954;
+        }
+
+        /* Make all button pairs equal size */
+        .button-container .button.back,
+        .button-container .button.start,
+        .button-container .button.next {
+            flex: 1 1 0 !important;
+            min-width: 120px;
+            max-width: 200px;
+        }
+
+        img {
+            max-width: 50%;
+            height: auto;
+        }
+
+        /* Responsive design */
+        @media only screen and (max-width: 768px) {
+            h2 {
+                font-size: 22px;
+            }
+
+            p, ul li p {
+                font-size: 16px;
+            }
+
+            .button {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p, ul li p {
+                font-size: 14px;
+            }
+
+            .button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        {% if screen == 1 %}
+            <h2>Welcome to the Experiment</h2>
+            <p><b>Your Task:</b> You will monitor modules in the software of an autonomous vehicle and decide whether a module needs to be inspected manually or not.</p>
+            <p>Please read each instruction screen carefully. When you're ready, click "Next" to proceed to the next screen.</p>
+            <div class="button-container">
+                <button type="submit" name="Continue" value="continue" class="button next">Next</button>
+            </div>
+        {% elif screen == 2 %}
+            <h2>Instructions</h2>
+            <p><b>Module Reading:</b> Each module has been inspected and shows a reading (a number). Higher numbers indicate a higher probability that the module needs manual inspection. Use this reading to decide whether the module needs an intervention.</p>
+            <p><b>Block 1 (Practice):</b> You will see only the module reading. Use this number alone to decide whether the module needs an intervention.</p>
+            <div>
+                <center><img src="/static/images/block1_instructions.png" alt="Image"></center>
+            </div>
+            <div class="button-container">
+                <button type="submit" name="Continue" value="back" class="button back">Back</button>
+                <button type="submit" name="Continue" value="continue" class="button next">Next</button>
+            </div>
+        {% elif screen == 3 %}
+            <h2>Scoring System</h2>
+            <p>You start with 30 points. After each decision, your score will be updated:</p>
+            <ul>
+                <li><p>If an intervention was needed and you correctly identify it, you earn <b>{{ v_tp }} point</b>. If you miss it, you lose <b>{{ v_fn }} points</b>.</p></li>
+                <li><p>If an intervention was <b>not needed</b> and you correctly identify that, you earn <b>{{ v_tn }} point</b>. If you mistakenly indicate that it was needed, you lose <b>{{ v_fp }} point</b>.</p></li>
+            </ul>
+            <div class="button-container">
+                <button type="submit" name="Continue" value="back" class="button back">Back</button>
+                <button type="submit" name="Continue" value="start_block_1" class="button start">Start</button>
+            </div>
+        {% elif screen == 4 %}
+            <h2>Block 2 (Practice with DS)</h2>
+            <p><b>What's Different:</b> Now you'll see both the module reading AND a Decision Support (DS) system recommendation.</p>
+            <p><b>DS System:</b> The DS is an AI system that learned from data and can help you by providing advice. The system shows a colored rectangle:</p>
+            <ul>
+                <li><p><b>Red rectangle</b> = "Alarm" (system recommends intervention)</p></li>
+                <li><p><b>Green rectangle</b> = "No Alarm" (system says no intervention needed and you can skip)</p></li>
+            </ul>
+            <p><b>Important:</b> The DS system is not perfect - it can make mistakes. Be aware of its output and use your judgment to decide whether to follow its recommendation or not.</p>
+            <p>Remember: Make your own decision based on *all* available information. Scoring works the same as Block 1 - you'll get feedback after each decision.</p>
+            <div class="div_fig">
+                  <center>
+                    <img src="/static/images/block2_instructions.png" width="300px" height="auto" alt="Image">
+                  </center>
+            </div>
+            <div class="button-container">
+                <button type="submit" name="Continue" value="back" class="button back">Back</button>
+                <button type="submit" name="Continue" value="start_block_2" class="button start">Continue</button>
+            </div>
+        {% elif screen == 6 %}
+            <h2>Block 3 (Main Experiment)</h2>
+            <p><b>What's Different:</b> This is the main experiment block. Everything works the same as Block 2:</p>
+            <ul>
+                <li><p>You'll see the module reading</p></li>
+                <li><p>You'll see the DS system recommendation (red/green rectangle)</p></li>
+                <li><p>You decide: intervene or skip</p></li>
+                <li><p>You get feedback and points after each decision</p></li>
+            </ul>
+            <p>Your score resets to 30 points for this block. The scoring rules remain the same.</p>
+            <div class="button-container">
+                <button type="submit" name="Continue" value="pd_screen" class="button next">Next</button>
+            </div>
+        {% else %}
+            <p>Invalid screen number.</p>
+        {% endif %}
+</form>
+</body>
+</html>

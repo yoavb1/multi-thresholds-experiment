@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: whitesmoke;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .note-text {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .score-text {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-color: #687C79;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        .active {
+            background-color: #1ECB47; /* Green */
+        }
+
+        .inactive {
+            background-color: #B1B1B1; /* Light grey */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="box">
+                <p class="note-text">
+                    Remember, purchasing the alerting system will deduct {{ cost }} points from your budget.
+                </p>
+
+                <p class="score-text">
+                    Score: {{ score }}
+                </p>
+
+                <button type="submit" name="Continue" value="Purchase" class="button {{ purchase_button_class }}">
+                    Purchase the alert system
+                </button>
+                <button type="submit" name="Continue" value="No Purchase" class="button {{ no_purchase_button_class }}">
+                    Do not purchase the alert system
+                </button>
+                <button type="submit" name="Continue" value="submit" class="button">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .button {
+            display: none; /* hidden by default */
+            width: 100%;
+            padding: 15px;
+            background-color: #ADD8E6;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #87CEFA;
+        }
+
+        .recaptcha-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        @media only screen and (max-width: 480px) {
+            h1 { font-size: 20px; }
+            p { font-size: 16px; }
+            .button { font-size: 16px; padding: 12px; }
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Human Verification</h1>
+        <p>Please verify that you are not a robot.</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="recaptcha-container">
+
+                <div class="g-recaptcha" data-sitekey="6LeNJdUrAAAAAFui3_x_jOguGyv_CQWbPJAvj2x5" data-callback="enableSubmit"></div>
+            </div>
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+<script>
+    function enableSubmit() {
+        document.querySelector('.button').style.display = 'inline-block';
+    }
+</script>
+</body>
+</html>

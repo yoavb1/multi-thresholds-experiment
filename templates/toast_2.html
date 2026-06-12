@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TOAST Questionnaire</title>
+  <style>
+    /* Global styling - matching instructions.html */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Container styling - matching instructions.html */
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .question {
+      margin: 20px 0;
+    }
+
+    .question p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    output {
+      display: block;
+      font-size: 18px;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Button styling - matching instructions.html blue button */
+    .button {
+      display: inline-block;
+      min-width: 120px;
+      padding: 15px;
+      background-color: #3498db;  /* Blue matching instructions */
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #2980b9;  /* Darker blue on hover */
+    }
+
+    /* Responsive design - matching instructions.html */
+    @media only screen and (max-width: 768px) {
+      h1 { font-size: 22px; }
+      .question p { font-size: 16px; }
+      .button { font-size: 16px; }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .container { margin: 20px; padding: 15px; }
+      h1 { font-size: 20px; }
+      .question p { font-size: 14px; }
+      .button { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Questionnaire</h1>
+    <p style="text-align: center; font-size: 18px; margin-top: -10px;">
+      Please answer all the following questions by moving the sliders. All responses are required.
+    </p>
+    <form method="POST" onsubmit="return validateForm()">
+      {% csrf_token %}
+
+      <div id="step1">
+        <!-- Q5 -->
+        <div class="question">
+          <p>The system helps me achieve my goals.</p>
+          <input type="range" name="satisfaction" min="1" max="7" value="1" id="satisfaction"
+                 oninput="updateOutput('satisfaction'); markTouched('satisfaction')"/>
+          <output id="satisfaction-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+          <p>The system performs consistently.</p>
+          <input type="range" name="accuracy" min="1" max="7" value="1" id="accuracy"
+                 oninput="updateOutput('accuracy'); markTouched('accuracy')"/>
+          <output id="accuracy-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+          <p>The system performs the way it should.</p>
+          <input type="range" name="consistency" min="1" max="7" value="1" id="consistency"
+                 oninput="updateOutput('consistency'); markTouched('consistency')"/>
+          <output id="consistency-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+          <p>I am rarely surprised by how the system responds.</p>
+          <input type="range" name="surprised" min="1" max="7" value="1" id="surprised"
+                 oninput="updateOutput('surprised'); markTouched('surprised')"/>
+          <output id="surprised-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+          <p>I feel comfortable relying on the information provided by the system.</p>
+          <input type="range" name="comfortable" min="1" max="7" value="1" id="comfortable"
+                 oninput="updateOutput('comfortable'); markTouched('comfortable')"/>
+          <output id="comfortable-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="button">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<script>
+  const touched = new Set();
+
+  // Initialize sliders and outputs
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+      updateOutput(slider.id);
+      slider.addEventListener('input', () => markTouched(slider.id));
+    });
+  });
+
+  function updateOutput(id) {
+    const slider = document.getElementById(id);
+    const output = document.getElementById(id + '-output');
+    output.innerHTML = '<strong>' + slider.value + '</strong>';
+  }
+
+  function markTouched(id) {
+    touched.add(id);
+  }
+
+  function validateForm() {
+    const sliders = document.querySelectorAll('input[type="range"]');
+    for (let slider of sliders) {
+      if (!touched.has(slider.id)) {
+        alert('Please interact with all sliders before submitting.');
+        return false;
+      }
+    }
+    return true;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TOAST Questionnaire</title>
+  <style>
+    /* Global styling - matching instructions.html */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Container styling - matching instructions.html */
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .question {
+      margin: 20px 0;
+    }
+
+    .question p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    output {
+      display: block;
+      font-size: 18px;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Button styling - matching instructions.html blue button */
+    .button {
+      display: inline-block;
+      min-width: 120px;
+      padding: 15px;
+      background-color: #3498db;  /* Blue matching instructions */
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #2980b9;  /* Darker blue on hover */
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    /* Responsive design - matching instructions.html */
+    @media only screen and (max-width: 768px) {
+      h1 { font-size: 22px; }
+      .question p { font-size: 16px; }
+      .button { font-size: 16px; }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .container { margin: 20px; padding: 15px; }
+      h1 { font-size: 20px; }
+      .question p { font-size: 14px; }
+      .button { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Questionnaire</h1>
+    <p style="text-align: center; font-size: 18px; margin-top: -10px;">
+      Please answer all the following questions by moving the sliders. All responses are required.
+    </p>
+    <form method="POST" onsubmit="return validateForm()">
+      {% csrf_token %}
+
+      <!-- Step 1 -->
+      <div class="step active" id="step1">
+        <!-- Q1 -->
+        <div class="question">
+          <p>I understand what the system should do.</p>
+          <input type="range" name="usefulness" min="1" max="7" value="1" id="usefulness"
+                 oninput="updateOutput('usefulness'); markTouched('usefulness')"/>
+          <output id="usefulness-output"></output>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+          <p>I understand the limitations of the system.</p>
+          <input type="range" name="reliability" min="1" max="7" value="1" id="reliability"
+                 oninput="updateOutput('reliability'); markTouched('reliability')"/>
+          <output id="reliability-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+          <p>I understand the capabilities of the system.</p>
+          <input type="range" name="trust" min="1" max="7" value="1" id="trust"
+                 oninput="updateOutput('trust'); markTouched('trust')"/>
+          <output id="trust-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+          <p>I understand how the system executes tasks.</p>
+          <input type="range" name="confidence" min="1" max="7" value="1" id="confidence"
+                 oninput="updateOutput('confidence'); markTouched('confidence')"/>
+          <output id="confidence-output"></output>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span>1 (Strongly Disagree)</span>
+            <span>7 (Strongly Agree)</span>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="button">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<script>
+  const touched = new Set();
+
+  // Initialize all sliders and outputs
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+      updateOutput(slider.id);
+      slider.addEventListener('input', () => markTouched(slider.id));
+    });
+  });
+
+  function updateOutput(id) {
+    const slider = document.getElementById(id);
+    const output = document.getElementById(id + '-output');
+    output.innerHTML = '<strong>' + slider.value + '</strong>';
+  }
+
+  function markTouched(id) {
+    touched.add(id);
+  }
+
+  function validateForm() {
+    const sliders = document.querySelectorAll('input[type="range"]');
+    for (let slider of sliders) {
+      if (!touched.has(slider.id)) {
+        alert('Please interact with all sliders before submitting.');
+        return false;
+      }
+    }
+    return true;
+  }
+</script>
+</body>
+</html>

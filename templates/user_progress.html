@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .condition {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .condition h3 {
+            color: #007BFF;
+        }
+
+        .condition .details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .condition .progress {
+            width: 60%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            height: 10px;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .condition .progress span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #28a745;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>User Progress</h1>
+
+        <div class="footer">
+            <p>Total Users: {{ total }}</p>
+        </div>
+    </div>
+
+</body>
+</html>

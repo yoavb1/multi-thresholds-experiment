@@ -1,0 +1,112 @@
+<!-- templates/landing_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Landing Page</title>
+    <style>
+        /* Global styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Container styling (for centering and responsiveness) */
+        .container {
+            width: 90%;  /* Use 90% width of the device's screen */
+            max-width: 600px;  /* Max width to prevent it from getting too wide on large screens */
+            margin: 50px auto;  /* Centering the container */
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #3498db;  /* Blue matching instructions Next button */
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #2980b9;  /* Darker blue on hover */
+        }
+
+        /* Responsive design adjustments */
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 22px;  /* Adjust heading size for smaller screens */
+            }
+
+            p {
+                font-size: 16px;  /* Adjust paragraph font size */
+            }
+
+            .button {
+                font-size: 16px;  /* Make button text smaller on small screens */
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            h1 {
+                font-size: 20px;  /* Smaller heading size for mobile screens */
+            }
+
+            p {
+                font-size: 14px;  /* Smaller paragraph text for mobile screens */
+            }
+
+            .container {
+                margin: 20px;  /* Reduce margin for smaller screens */
+                padding: 15px;  /* Reduce padding */
+            }
+
+            .button {
+                padding: 12px;  /* Adjust button padding for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Study</h1>
+            <p><b>Task:</b> Your task in the experiment resembles that of an engineer in a company that produces autonomous vehicles. You will see descriptions of modules in the software for the vehicle, and your task is to decide whether to flag the module for manual inspection.</p>
+            
+            <p><b>Duration:</b> The study should take about 15 minutes, but you are free to go through it at your own pace.</p>
+            
+            <p><b>Payment:</b> If you complete the study, you will receive payment for your participation. A number of participants may receive an extra bonus of $10. The chances of you receiving the bonus increase the more points you accumulate during the experiment.</p>
+            
+            <p><b>Voluntary Participation:</b> Your participation in this research is voluntary. You have the right to withdraw at any point during the study, for any reason, and without any negative consequences for you.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="button-container">
+                <button class="button" type="submit" name="Continue" value="continue">Start Experiment</button>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

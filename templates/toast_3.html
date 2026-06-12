@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Questionnaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .question {
+      margin: 20px 0;
+    }
+
+    .question p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    output {
+      display: block;
+      font-size: 18px;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      min-width: 120px;
+      padding: 15px;
+      background-color: #3498db;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    @media only screen and (max-width: 768px) {
+      h1 { font-size: 22px; }
+      .question p { font-size: 16px; }
+      .button { font-size: 16px; }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .container { margin: 20px; padding: 15px; }
+      h1 { font-size: 20px; }
+      .question p { font-size: 14px; }
+      .button { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Questionnaire</h1>
+    <p style="text-align: center; font-size: 18px; margin-top: -10px;">
+      Please answer all the following questions by moving the sliders.
+    </p>
+    <form method="POST" onsubmit="return validateForm()">
+      {% csrf_token %}
+
+      <div class="question">
+        <p>How good are you at working with fractions?</p>
+        <input type="range" name="numeracy_fractions" min="1" max="6" value="1" id="numeracy_fractions"
+               oninput="updateOutput('numeracy_fractions'); markTouched('numeracy_fractions')"/>
+        <output id="numeracy_fractions-output"></output>
+        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+          <span>1 (Not good at all)</span>
+          <span>6 (Extremely good)</span>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>How good are you at figuring out how much a shirt will cost if it is 25% off?</p>
+        <input type="range" name="numeracy_shirt" min="1" max="6" value="1" id="numeracy_shirt"
+               oninput="updateOutput('numeracy_shirt'); markTouched('numeracy_shirt')"/>
+        <output id="numeracy_shirt-output"></output>
+        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+          <span>1 (Not good at all)</span>
+          <span>6 (Extremely good)</span>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>How often do you find numerical information to be useful?</p>
+        <input type="range" name="numeracy_useful" min="1" max="6" value="1" id="numeracy_useful"
+               oninput="updateOutput('numeracy_useful'); markTouched('numeracy_useful')"/>
+        <output id="numeracy_useful-output"></output>
+        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+          <span>1 (Never)</span>
+          <span>6 (Very often)</span>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="button">Continue</button>
+      </div>
+    </form>
+  </div>
+
+<script>
+  const touched = new Set();
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+      updateOutput(slider.id);
+      slider.addEventListener('input', () => markTouched(slider.id));
+    });
+  });
+
+  function updateOutput(id) {
+    const slider = document.getElementById(id);
+    const output = document.getElementById(id + '-output');
+    output.innerHTML = '<strong>' + slider.value + '</strong>';
+  }
+
+  function markTouched(id) {
+    touched.add(id);
+  }
+
+  function validateForm() {
+    const sliders = document.querySelectorAll('input[type="range"]');
+    for (let slider of sliders) {
+      if (!touched.has(slider.id)) {
+        alert('Please interact with all sliders before submitting.');
+        return false;
+      }
+    }
+    return true;
+  }
+</script>
+</body>
+</html>

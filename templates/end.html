@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment Completed</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .div_text {
+            margin-bottom: 30px;
+        }
+        .head_text {
+            font-size: 24px;
+        }
+        .p_text {
+            font-size: 18px;
+        }
+        .div_button {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="div_text">
+            <p class="head_text"><b>Thank you for participating in the experiment</b></p>
+            <br><br>
+            {% if finish %}
+                {# You can add extra message or confirmation code here if needed #}
+            {% else %}
+                <p class="p_text">You were unable to complete the experiment successfully</p>
+            {% endif %}
+        </div>
+        <div class="div_button">
+            {% if finish %}
+                <a href="https://app.cloudresearch.com/Router/End?aid={{ aid }}" class="button">Back to CloudResearch</a>
+            {% else %}
+                <a href="https://app.cloudresearch.com/Router/ThankYouTerm?aid={{ aid }}" class="button">Back to CloudResearch</a>
+            {% endif %}
+        </div>
+    </div>
+</form>
+</body>
+</html>

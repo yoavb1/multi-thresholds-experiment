@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Questionnaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .question {
+      margin: 20px 0;
+    }
+
+    .question p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      min-width: 120px;
+      padding: 15px;
+      background-color: #3498db;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    @media only screen and (max-width: 768px) {
+      h1 { font-size: 22px; }
+      .question p { font-size: 16px; }
+      .button { font-size: 16px; }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .container { margin: 20px; padding: 15px; }
+      h1 { font-size: 20px; }
+      .question p { font-size: 14px; }
+      .button { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Questionnaire</h1>
+    <p style="text-align: center; font-size: 18px; margin-top: -10px;">
+      Please answer the following questions.
+    </p>
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="question">
+        <p>What is your age group?</p>
+        <select name="age_group" required>
+          <option value="" disabled selected>-- Select --</option>
+          <option value="less_than_18">Less than 18</option>
+          <option value="18-25">18-25</option>
+          <option value="26-34">26-34</option>
+          <option value="35-40">35-40</option>
+          <option value="41-55">41-55</option>
+          <option value="56-70">56-70</option>
+          <option value="older_than_70">Older than 70</option>
+          <option value="prefer_not_to_answer">Prefer not to answer</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <p>What is your gender?</p>
+        <select name="gender" required>
+          <option value="" disabled selected>-- Select --</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="non-binary">Non-binary</option>
+          <option value="prefer_not_to_answer">Prefer not to answer</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <p>What is the highest level of education you completed?</p>
+        <select name="education" required>
+          <option value="" disabled selected>-- Select --</option>
+          <option value="some_high_school">Some high school, no diploma, or less</option>
+          <option value="high_school">High school graduate (or equivalent)</option>
+          <option value="some_college">Some college credit, no degree</option>
+          <option value="trade_technical">Trade/technical/vocational training</option>
+          <option value="associate">Associate degree</option>
+          <option value="bachelor">Bachelor's degree</option>
+          <option value="master">Master's degree</option>
+          <option value="professional">Professional degree</option>
+          <option value="doctorate">Doctorate degree</option>
+        </select>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="button">Finish</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

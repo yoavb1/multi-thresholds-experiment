@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: whitesmoke;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+
+        .text-section, .score-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .note-text {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .score-text {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .button {
+            background-color: #687C79;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            width: 100%;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        .active {
+            background-color: #1ECB47;
+        }
+
+        .inactive {
+            background-color: #B1B1B1;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+
+            <div class="text-section">
+                <p class="note-text">
+                    Remember, purchasing the alerting system will deduct {{ cost }} points from your budget.
+                </p>
+            </div>
+
+            <div class="score-section">
+                <p class="score-text">
+                    Score: {{ score }}
+                </p>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" name="Continue" value="Purchase" class="button {{ purchase_button_class }}">
+                    Purchase the alert system
+                </button>
+                <button type="submit" name="Continue" value="No Purchase" class="button {{ no_purchase_button_class }}">
+                    Do not purchase the alert system
+                </button>
+                <button type="submit" name="Continue" value="submit" class="button">
+                    Submit
+                </button>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

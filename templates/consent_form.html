@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent Form</title>
+    <style>
+        /* Global styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Container styling (for centering and responsiveness) */
+        .container {
+            width: 90%;  /* Use 90% width of the device's screen */
+            max-width: 600px;  /* Max width to prevent it from getting too wide on large screens */
+            margin: 50px auto;  /* Centering the container */
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            width: 45%;
+            padding: 15px;
+            background-color: #ADD8E6;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #87CEFA;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Responsive design adjustments */
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 22px;  /* Adjust heading size for smaller screens */
+            }
+
+            p {
+                font-size: 16px;  /* Adjust paragraph font size */
+            }
+
+            .button {
+                font-size: 16px;  /* Make button text smaller on small screens */
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            h1 {
+                font-size: 20px;  /* Smaller heading size for mobile screens */
+            }
+
+            p {
+                font-size: 14px;  /* Smaller paragraph text for mobile screens */
+            }
+
+            .container {
+                margin: 20px;  /* Reduce margin for smaller screens */
+                padding: 15px;  /* Reduce padding */
+            }
+
+            .button {
+                padding: 12px;  /* Adjust button padding for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consent Form</h1>
+        <p>This study involves decision-making in an autonomous vehicle factory.</p>
+        
+        <p>Your responses are anonymous, and we do not collect any individually identifiable information about you. Any information about responses published as a result of the study will be reported anonymously. Upon your request, the researchers are obliged to delete any information provided by you during the course of the study.</p>
+
+        <p><b>How to contact us?</b></p>
+        <p>Contact details - Omri Bouchnick</p>
+        <p>via email: bouchnick@mail.tau.ac.il</p>
+
+        <p>By clicking the button below, you acknowledge that your participation in the study is voluntary, you are 18 years of age or older, and you are aware that you may choose to terminate your participation in the study at any time and for any reason.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="button-container">
+                <button type="submit" name="Continue" value="end_experiment" class="button" style="order: 1;">End the Experiment</button>
+                <button type="submit" name="Continue" value="begin_experiment" class="button" style="order: 2; background-color: #27ae60;">Begin the Experiment</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
