@@ -1,4 +1,4 @@
-condition_id,architecture,item_id,ps,dprime_ai,dprime_human,threshold_distance_bhigh_minus_blow,blow,bhigh,true_label,x_ai,x_human,ai_classification
+condition_id,architecture,item_id,ps,dprime_ai,dprime_human,thresholds_distance,blow,bhigh,true_label,x_ai,x_human,ai_classification
 1,0,1,0.5,1.5,1.5,2,-1,1,signal,2.816739573,0.201207169,signal
 1,0,2,0.5,1.5,1.5,2,-1,1,signal,-0.46812532,0.289911571,uncertain
 1,0,3,0.5,1.5,1.5,2,-1,1,noise,0.232473174,-0.784051392,uncertain
