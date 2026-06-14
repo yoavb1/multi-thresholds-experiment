@@ -60,13 +60,11 @@ def log_landing_attempt(request, aid, source):
 def load_block_trials(csv_row_id=None) -> tuple:
     """
     Load trial data from CSV for a user.
-    UPDATED: Now targeted at DATA/data.csv using vertical condition indexing.
+    Completely randomized: Chooses a random condition_id with NO usage tracking.
     """
     STIMULI_SCALAR = 6.5
 
-    # 1. Update the directory path and target name
     csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
-    lock_path = csv_path + ".lock"
 
     if not os.path.exists(csv_path):
         logger.error(f"CRITICAL: CSV file not found at {csv_path}")
@@ -74,70 +72,71 @@ def load_block_trials(csv_row_id=None) -> tuple:
 
     # Helper mapping to support 'signal', 'noise', and 'uncertain'
     def get_ds_state(val):
-        # Assumes values: 0/noise -> 'noise', 2/signal -> 'signal', 1/uncertain -> 'uncertain'
-        # Adjust integers below if your data.csv uses different keys (e.g., strings)
-        # Fallback if your CSV already lists text strings
-        val_str = str(val).strip().lower()
-        if 'signal' in val_str: return 'signal'
-        if 'noise' in val_str: return 'noise'
-        return 'uncertain'
+        try:
+            v = int(val)
+            mapping = {0: 'noise', 1: 'uncertain', 2: 'signal'}
+            return mapping.get(v, 'uncertain')
+        except (ValueError, TypeError):
+            val_str = str(val).strip().lower()
+            if 'signal' in val_str: return 'signal'
+            if 'noise' in val_str: return 'noise'
+            return 'uncertain'
 
-    # 2. Select condition row atomically using FileLock
-    try:
-        with FileLock(lock_path, timeout=30):
-            event_data = pd.read_csv(csv_path)
+    # Read the data file cleanly (No FileLock or writing needed anymore!)
+    event_data = pd.read_csv(csv_path)
 
-            if csv_row_id:
-                row_id = csv_row_id
-            else:
-                # Get a list of all unique condition IDs in the file and pick one completely at random
-                all_unique_ids = event_data['condition_id'].unique()
-                row_id = int(random.choice(all_unique_ids))
+    # Pick the target condition ID
+    if csv_row_id:
+        row_id = csv_row_id
+    else:
+        # Get a list of all unique condition IDs in the file and pick one completely at random
+        all_unique_ids = event_data['condition_id'].unique()
+        row_id = int(random.choice(all_unique_ids))
 
-            # Filter the dataset down strictly to our randomly selected condition
-            selected_rows = event_data[event_data['condition_id'] == row_id].sort_values('item_id')
+    # Filter the dataset down strictly to our randomly selected condition
+    selected_rows = event_data[event_data['condition_id'] == row_id].sort_values('item_id')
 
-            # Extract meta baselines from the filtered subset
-            first_row = selected_rows.iloc[0]
-            ps = float(first_row['ps'])
-            dprime_h = float(first_row['dprime_human'])
-            dprime_s = float(first_row['dprime_ai'])
+    # Extract meta baselines from the filtered subset
+    first_row = selected_rows.iloc[0]
+    ps = float(first_row['ps'])
+    dprime_h = float(first_row['dprime_human'])
+    dprime_s = float(first_row['dprime_ai'])
 
-            thresholds_distance = str(first_row['thresholds_distance'])
-            architecture = str(first_row['architecture'])
+    thresholds_distance = str(first_row['thresholds_distance'])
+    architecture = str(first_row['architecture'])
 
-            data_dict = {1: {}, 2: {}, 3: {}}
-            rows_list = selected_rows.to_dict('records')
+    data_dict = {1: {}, 2: {}, 3: {}}
+    rows_list = selected_rows.to_dict('records')
 
-            # Distribute the loaded items sequentially across experimental blocks
-            # Block 1: Trials 1-10
-            for idx, row in enumerate(rows_list[:10]):
-                trial_num = idx + 1
-                data_dict[1][trial_num] = {
-                    'event': row['true_label'],
-                    'stimuli': float(row['x_human']) + STIMULI_SCALAR,
-                    'ds_judgment': get_ds_state(row['ai_classification'])
-                }
+    # Distribute the loaded items sequentially across experimental blocks
+    # Block 1: Trials 1-10
+    for idx, row in enumerate(rows_list[:10]):
+        trial_num = idx + 1
+        data_dict[1][trial_num] = {
+            'event': row['true_label'],
+            'stimuli': float(row['x_human']) + STIMULI_SCALAR,
+            'ds_judgment': get_ds_state(row['ai_classification'])
+        }
 
-            # Block 2: Trials 11-20
-            for idx, row in enumerate(rows_list[10:20]):
-                trial_num = idx + 1
-                data_dict[2][trial_num] = {
-                    'event': row['true_label'],
-                    'stimuli': float(row['x_human']) + STIMULI_SCALAR,
-                    'ds_judgment': get_ds_state(row['ai_classification'])
-                }
+    # Block 2: Trials 11-20
+    for idx, row in enumerate(rows_list[10:20]):
+        trial_num = idx + 1
+        data_dict[2][trial_num] = {
+            'event': row['true_label'],
+            'stimuli': float(row['x_human']) + STIMULI_SCALAR,
+            'ds_judgment': get_ds_state(row['ai_classification'])
+        }
 
-            # Block 3: Trials 21-120
-            for idx, row in enumerate(rows_list[20:120]):
-                trial_num = idx + 1
-                data_dict[3][trial_num] = {
-                    'event': row['true_label'],
-                    'stimuli': float(row['x_human']) + STIMULI_SCALAR,
-                    'ds_judgment': get_ds_state(row['ai_classification'])
-                }
+    # Block 3: Trials 21-120
+    for idx, row in enumerate(rows_list[20:120]):
+        trial_num = idx + 1
+        data_dict[3][trial_num] = {
+            'event': row['true_label'],
+            'stimuli': float(row['x_human']) + STIMULI_SCALAR,
+            'ds_judgment': get_ds_state(row['ai_classification'])
+        }
 
-            return data_dict, row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture
+    return data_dict, row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture
 
 
 def landing_page(request):
