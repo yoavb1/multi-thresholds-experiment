@@ -193,7 +193,7 @@
 <body>
     <input type="hidden" id="autoClassify" value="{{ auto_classify|yesno:'true,false' }}">
     <input type="hidden" id="aiDecision" value="{{ ai_decision }}">
-    <input type="hidden" id="autoScoreChange" value="{{ auto_score_change }}">
+    <input type="hidden" id="aiWasCorrect" value="{{ ai_was_correct|yesno:'true,false' }}">
 
     <div class="container {% if show_ds %}with-ds{% else %}no-ds{% endif %}">
         <div class="div_head">
@@ -293,35 +293,40 @@
         const isAutoEnabled = document.getElementById("autoClassify").value === "true";
 
         if (isAutoEnabled) {
-            const aiDecision = document.getElementById("aiDecision").value; // 'signal' or 'noise'
+            const aiDecision = document.getElementById("aiDecision").value;
             const scoreChange = parseInt(document.getElementById("autoScoreChange").value);
+            const aiWasCorrect = document.getElementById("aiWasCorrect").value === "true"; // <--- READ THE NEW VARIABLE
 
-            // Map the programmatic terms 'signal'/'noise' to human interface terminology strings
             const localizedDecisionName = aiDecision === 'signal' ? 'INTERVENE' : 'SKIP';
             const changeIndicatorSign = scoreChange >= 0 ? "+" : "";
 
-            // 1. Immediately visually freeze human elements and refresh active score metric on dashboard container
+            // Set up our new dynamic text and visual symbols
+            const accuracyText = aiWasCorrect ? "AI Was Correct" : "AI Was Wrong";
+            const accuracySymbol = aiWasCorrect ? "✓" : "✗";
+            const accuracyColor = aiWasCorrect ? "green" : "red";
+
+            // 1. Visually freeze human elements and refresh dashboard score
             document.querySelectorAll("button.big-button").forEach(btn => btn.disabled = true);
             const scoreboardElement = document.getElementById("scoreValue");
             if (scoreboardElement) {
                 scoreboardElement.innerText = "Score: " + (baseScore + scoreChange);
             }
 
-            // 2. Spawn automation notification alert modal using your design templates
+            // 2. Spawn the updated automation notification alert modal
             Swal.fire({
                 title: 'AI Automation Active',
-                html: `The AI has automatically classified this trial as:<br><br>` +
+                html: `The AI has automatically classified this trial as:<br>` +
                       `<b style="font-size:1.4em; color: ${aiDecision === 'signal' ? '#DD0707' : '#65A569'};">${localizedDecisionName}</b><br><br>` +
-                      `Score Adjusted: <b style="color: ${scoreChange >= 0 ? 'green' : 'red'};">${changeIndicatorSign}${scoreChange}</b>`,
-                icon: 'info',
+                      `<span style="font-size:1.2em; font-weight:bold; color: ${accuracyColor};">${accuracySymbol} ${accuracyText}</span><br>` +
+                      `<small style="color: #666;">Score: ${changeIndicatorSign}${scoreChange}</small>`,
+                icon: aiWasCorrect ? 'success' : 'error', // Changes the big icon between a green checkmark and a red X automatically!
                 showConfirmButton: false,
                 allowOutsideClick: false,
                 allowEscapeKey: false,
-                timer: 2000, // Keeps context message visible to read for 2 full seconds
+                timer: 4000,
                 timerProgressBar: true,
                 backdrop: true,
                 didClose: () => {
-                    // Update hidden inputs and submit form to step into the next item entry point
                     document.getElementById("classificationInput").value = aiDecision;
                     document.getElementById("isAutoClassifiedInput").value = "true";
                     document.getElementById("classificationForm").submit();

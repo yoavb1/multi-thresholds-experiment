@@ -742,31 +742,27 @@ def game(request):
     auto_classify = False
     ai_decision = None
     auto_score_change = 0
+    ai_was_correct = False
 
-    # Automation rules apply only if AI is visible/active (Block 2 & 3)
     if show_ds:
-        # Architecture 1: AI identifies Signal -> Auto-classify Signal
         if architecture == "1" and ds_judgment == "signal":
             auto_classify = True
             ai_decision = "signal"
-
-        # Architecture 2: AI identifies Noise -> Auto-classify Noise
         elif architecture == "2" and ds_judgment == "noise":
             auto_classify = True
             ai_decision = "noise"
-
-        # Architecture 3: AI identifies Signal or Noise -> Auto-classify that specific state
         elif architecture == "3" and ds_judgment in ["signal", "noise"]:
             auto_classify = True
             ai_decision = ds_judgment
 
-        # Calculate preview score adjustment to display in the frontend popup
-        auto_score_change = 0
         if auto_classify:
+            # Check if the AI's classification matches the true ground truth event_type
             if ai_decision == event_type:
                 auto_score_change = 1
+                ai_was_correct = True
             else:
                 auto_score_change = -1
+                ai_was_correct = False
 
     context = {
         'pd': request.session["pd"],
@@ -779,7 +775,7 @@ def game(request):
         'show_ds': show_ds,
         'auto_classify': auto_classify,
         'ai_decision': ai_decision,
-        'auto_score_change': auto_score_change,
+        'ai_was_correct': ai_was_correct,
     }
 
     if request.method == "POST":
