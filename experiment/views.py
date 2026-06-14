@@ -776,6 +776,7 @@ def game(request):
         'auto_classify': auto_classify,
         'ai_decision': ai_decision,
         'ai_was_correct': ai_was_correct,
+        'auto_score_change': auto_score_change,
     }
 
     if request.method == "POST":
