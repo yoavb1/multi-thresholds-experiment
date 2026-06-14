@@ -72,15 +72,10 @@ def load_block_trials(csv_row_id=None) -> tuple:
 
     # Helper mapping to support 'signal', 'noise', and 'uncertain'
     def get_ds_state(val):
-        try:
-            v = int(val)
-            mapping = {0: 'noise', 1: 'uncertain', 2: 'signal'}
-            return mapping.get(v, 'uncertain')
-        except (ValueError, TypeError):
-            val_str = str(val).strip().lower()
-            if 'signal' in val_str: return 'signal'
-            if 'noise' in val_str: return 'noise'
-            return 'uncertain'
+        val_str = str(val).strip().lower()
+        if 'signal' in val_str: return 'signal'
+        if 'noise' in val_str: return 'noise'
+        return 'uncertain'
 
     # Read the data file cleanly (No FileLock or writing needed anymore!)
     event_data = pd.read_csv(csv_path)
