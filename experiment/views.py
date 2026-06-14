@@ -741,6 +741,7 @@ def game(request):
 
     auto_classify = False
     ai_decision = None
+    auto_score_change = 0
 
     # Automation rules apply only if AI is visible/active (Block 2 & 3)
     if show_ds:
