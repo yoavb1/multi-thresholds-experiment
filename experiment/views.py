@@ -142,11 +142,9 @@ def load_block_trials(csv_row_id=None) -> tuple:
 
 def landing_page(request):
     # ========== STEP 1: GET AID FROM MULTIPLE POSSIBLE PARAMETERS ==========
-    # CloudResearch might use different parameter names
     aid = None
     aid_source = "none"
 
-    # Check multiple possible parameter names (in priority order)
     aid_param_names = ['aid', 'workerId', 'WORKER_ID', 'worker_id', 'participant_id',
                        'participantId', 'session_id', 'sessionId', 'prolific_pid', 'PROLIFIC_PID']
 
@@ -157,12 +155,11 @@ def landing_page(request):
             aid_source = param_name
             break
 
-    # ========== STEP 2: LOG THIS ATTEMPT IMMEDIATELY (before any DB/CSV ops) ==========
+    # ========== STEP 2: LOG THIS ATTEMPT IMMEDIATELY ==========
     log_landing_attempt(request, aid if aid else "NO_AID", aid_source)
 
-    # ========== STEP 3: CHECK SESSION FOR EXISTING AID (prevents refresh creating new user) ==========
+    # ========== STEP 3: CHECK SESSION FOR EXISTING AID ==========
     if not aid and 'aid' in request.session and 'user_id' in request.session:
-        # User refreshed the page - restore their AID from session
         aid = request.session['aid']
         aid_source = "session_restore"
         logger.info(f"Restored AID from session: {aid}")
@@ -177,31 +174,27 @@ def landing_page(request):
         if aid_source != "session_restore":
             logger.info(f"Received AID '{aid}' from parameter '{aid_source}'")
 
-    # ========== STEP 4: AUTO-TIMEOUT FOR ABANDONED ROWS ==========
-    # Check if user already exists (by aid, not just session!)
+    # ========== STEP 5: LOAD OR CREATE EXPERIMENT USER RECORD ==========
     try:
         experiment_data = ExperimentData.objects.get(aid=aid)
 
         # User exists - check if completed
         if experiment_data.complete:
-            # If test user already complete, generate new unique aid
             if aid.startswith("test"):
                 timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
                 unique_id = uuid.uuid4().hex[:6]
                 aid = f"test_{timestamp}_{unique_id}"
-                # Raise exception to create new user with new aid
                 raise ExperimentData.DoesNotExist
-            # Real CloudResearch user who already completed
             return redirect('/end/')
 
         # Incomplete user - restore their data
         csv_row_id = experiment_data.csv_row_id
         if csv_row_id:
-            # Load trials from their assigned row
-            events_data, condition_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(csv_row_id=csv_row_id)
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(
+                csv_row_id=csv_row_id)
         else:
-            # Old record without csv_row_id - assign new row
-            events_data, condition_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
+            # Replaced output placeholder name to match assignments cleanly
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
             experiment_data.csv_row_id = csv_row_id
             experiment_data.ps = ps
             experiment_data.human_sensitivity = dprime_h
@@ -210,15 +203,14 @@ def landing_page(request):
             experiment_data.architecture = architecture
             experiment_data.save()
 
-        # Restore session
+        # Restore session keys
         request.session["user_id"] = experiment_data.user_id
         request.session["aid"] = aid
-
         request.session["ps"] = float(ps)
         request.session["human_sensitivity"] = float(dprime_h)
         request.session["ds_sensitivity"] = float(dprime_s)
         request.session["thresholds_distance"] = thresholds_distance
-        request.session["architecture"] = random.choice(["1", "2", "3"])
+        request.session["architecture"] = architecture
         request.session["events_data"] = events_data
         request.session["csv_row_id"] = csv_row_id
         request.session["block_scores"] = request.session.get("block_scores", {})
@@ -226,27 +218,20 @@ def landing_page(request):
             request.session["experiment_start_time"] = datetime.datetime.now().isoformat()
 
     except ExperimentData.DoesNotExist:
-        # New user - assign CSV row
+        # New user - assign random CSV group condition
         logger.info(f"Creating new user with AID: {aid}")
 
         try:
             events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
-            logger.info(f"Assigned CSV row {csv_row_id} to AID {aid}")
+            logger.info(f"Randomly assigned condition group (row reference): {csv_row_id} to AID {aid}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to load_block_trials for AID {aid}: {e}")
-            # Log the error to a file for debugging
             error_log_path = os.path.join(settings.BASE_DIR, 'data', 'csv_errors.log')
             with open(error_log_path, 'a') as f:
                 f.write(f"{datetime.datetime.now().isoformat()} - load_block_trials failed for {aid}: {e}\n")
-            raise  # Re-raise so we can see the error
+            raise
 
-        # --- DEVELOPER DEBUG PRINTING BLOCK ---
-        print("\n" + "=" * 40)
-        print(f"Selected Architecture: {request.session.get('architecture')}")
-        print("=" * 40 + "\n")
-        logger.info(f"Row {csv_row_id} was marked as 0.5 atomically inside load_block_trials()")
-
-        # Create record (use get_or_create to prevent race condition)
+        # Create record (use get_or_create to prevent database race condition overrides)
         try:
             experiment_data, created = ExperimentData.objects.get_or_create(
                 aid=aid,
@@ -260,7 +245,7 @@ def landing_page(request):
                     'complete': False
                 }
             )
-            logger.info(f"Created user record: user_id={experiment_data.user_id}, created={created}")
+            logger.info(f"Created database user record: user_id={experiment_data.user_id}, created={created}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to create ExperimentData for AID {aid}: {e}")
             error_log_path = os.path.join(settings.BASE_DIR, 'data', 'csv_errors.log')
@@ -268,15 +253,14 @@ def landing_page(request):
                 f.write(f"{datetime.datetime.now().isoformat()} - ExperimentData creation failed for {aid}: {e}\n")
             raise
 
-        # If not created, someone else created it first - use their data
+        # If not created, someone else created it simultaneously - fallback to existing data row
         if not created:
-            # Reset our row back to available since we won't use it
-            mark_row_as_available(csv_row_id)
             csv_row_id = experiment_data.csv_row_id
-            events_data, condition_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(csv_row_id=csv_row_id)
-            logger.info(f"User already existed, restored from row {csv_row_id}")
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(
+                csv_row_id=csv_row_id)
+            logger.info(f"User already existed in database, loaded from saved row {csv_row_id}")
 
-        # Store in session
+        # Store parameters into session
         request.session["user_id"] = experiment_data.user_id
         request.session["aid"] = aid
         request.session["ps"] = float(ps)
@@ -289,22 +273,17 @@ def landing_page(request):
         request.session["block_scores"] = {}
         request.session["experiment_start_time"] = datetime.datetime.now().isoformat()
 
+        # --- DEVELOPER DEBUG PRINTING BLOCK (Moved post-session definition) ---
+        print("\n" + "=" * 40)
+        print(f"DEBUG: Selected Architecture: {request.session.get('architecture')}")
+        print(f"DEBUG: Loaded Condition ID:  {csv_row_id}")
+        print("=" * 40 + "\n")
+
     if request.method == "POST":
-        if request.POST['Continue'] == 'continue':
+        if request.POST.get('Continue') == 'continue':
             return redirect('/consent_form/')
+
     return render(request, 'landing_page.html')
-
-
-# View for the consent form page
-# def consent_form(request):
-#     if request.method == "POST":
-#         if request.POST['Continue'] == 'begin_experiment':
-#             request.session["current_screen"] = 1
-#             return redirect('/recaptcha/')
-#         elif request.POST['Continue'] == 'end_experiment':
-#             return redirect('/end/')  # Redirect to the instruction page (replace with actual URL name)
-
-#     return render(request, 'consent_form.html')
 
 def consent_form(request):
     if request.method == "POST":
