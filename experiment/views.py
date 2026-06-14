@@ -72,10 +72,20 @@ def load_block_trials(csv_row_id=None) -> tuple:
 
     # Helper mapping to support 'signal', 'noise', and 'uncertain'
     def get_ds_state(val):
-        val_str = str(val).strip().lower()
-        if 'signal' in val_str: return 'signal'
-        if 'noise' in val_str: return 'noise'
-        return 'uncertain'
+        if pd.isna(val):  # Check if cell is completely empty
+            return 'uncertain'
+
+        try:
+            # Convert float strings like "0.0" safely to integer 0
+            v = int(float(val))
+            mapping = {0: 'noise', 1: 'uncertain', 2: 'signal'}
+            return mapping.get(v, 'uncertain')
+        except (ValueError, TypeError):
+            # Fallback string checker if your CSV contains raw words instead of numbers
+            val_str = str(val).strip().lower()
+            if 'signal' in val_str: return 'signal'
+            if 'noise' in val_str: return 'noise'
+            return 'uncertain'
 
     # Read the data file cleanly (No FileLock or writing needed anymore!)
     event_data = pd.read_csv(csv_path)
@@ -85,8 +95,8 @@ def load_block_trials(csv_row_id=None) -> tuple:
         row_id = csv_row_id
     else:
         # Get a list of all unique condition IDs in the file and pick one completely at random
-        all_unique_ids = event_data['condition_id'].unique()
-        row_id = int(random.choice(all_unique_ids))
+        unique_conditions = event_data['condition_id'].unique()
+        row_id = int(random.choice(unique_conditions))
 
     # Filter the dataset down strictly to our randomly selected condition
     selected_rows = event_data[event_data['condition_id'] == row_id].sort_values('item_id')
@@ -98,7 +108,12 @@ def load_block_trials(csv_row_id=None) -> tuple:
     dprime_s = float(first_row['dprime_ai'])
 
     thresholds_distance = str(first_row['thresholds_distance'])
-    architecture = str(first_row['architecture'])
+    # FIX: If architecture is '0', 'nan', or missing, sample a random group condition cleanly
+    raw_arch = str(first_row['architecture']).strip()
+    if raw_arch in ['0', 'nan', 'None', '']:
+        architecture = random.choice(["1", "2", "3"])
+    else:
+        architecture = raw_arch
 
     data_dict = {1: {}, 2: {}, 3: {}}
     rows_list = selected_rows.to_dict('records')
@@ -210,6 +225,15 @@ def landing_page(request):
         request.session["block_scores"] = request.session.get("block_scores", {})
         if "experiment_start_time" not in request.session:
             request.session["experiment_start_time"] = datetime.datetime.now().isoformat()
+        print('---------------------------------------')
+        print(f'Thresholds Distance: {request.session.get("thresholds_distance")}')
+        print(f'Ps: {request.session.get("ps")}')
+        print(f'csv_row_id: {request.session.get("csv_row_id")}')
+        print(f'DS Sensitivity: {request.session.get("ds_sensitivity")}')
+        print(f'Human Sensitivity: {request.session.get("human_sensitivity")}')
+        print(f'AID: {request.session.get("aid")}')
+        print(f'architecture: {request.session.get("architecture")}')
+        print('---------------------------------------')
 
     except ExperimentData.DoesNotExist:
         # New user - assign random CSV group condition
@@ -432,10 +456,6 @@ def end(request):
 
         participant.save()
 
-        # Reset CSV row from 0.5 back to 0 so it can be reused
-        if participant.csv_row_id:
-            mark_row_as_available(participant.csv_row_id)
-
         aid = request.session.get("aid", "test")
         return redirect(f'https://app.cloudresearch.com/Router/ThankYouTerm?aid={aid}')
 
@@ -573,8 +593,8 @@ def game(request):
                 }
             )
 
-            request.session["trial"] += 1
-            del request.session['screen_entry_time']
+        request.session["trial"] += 1
+        del request.session['screen_entry_time']
 
         return redirect('/game/')
 
