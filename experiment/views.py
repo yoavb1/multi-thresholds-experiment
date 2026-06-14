@@ -12,6 +12,14 @@ import uuid
 import logging
 from .models import *
 
+from dotenv import load_dotenv
+
+# Find the .env file and load its contents into environment variables
+load_dotenv()
+
+# Safely read the password from the environment
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+
 # FileLock for atomic CSV operations - prevents race conditions
 # Install: pip install filelock
 from filelock import FileLock, Timeout
