@@ -428,11 +428,12 @@ def landing_page(request):
         # Restore session
         request.session["user_id"] = experiment_data.user_id
         request.session["aid"] = aid
+
         request.session["ps"] = float(ps)
         request.session["human_sensitivity"] = float(dprime_h)
         request.session["ds_sensitivity"] = float(dprime_s)
         request.session["thresholds_distance"] = thresholds_distance
-        request.session["architecture"] = architecture
+        request.session["architecture"] = random.choice(["1", "2", "3"])
         request.session["events_data"] = events_data
         request.session["csv_row_id"] = csv_row_id
         request.session["block_scores"] = request.session.get("block_scores", {})
@@ -454,17 +455,10 @@ def landing_page(request):
                 f.write(f"{datetime.datetime.now().isoformat()} - load_block_trials failed for {aid}: {e}\n")
             raise  # Re-raise so we can see the error
 
-        # NOTE: Row marking is now done atomically inside load_block_trials() with FileLock
-        # The separate mark_row_in_progress() call is no longer needed and is commented out
-        # to prevent the race condition that caused duplicate assignments in the first experiment.
-        #
-        # OLD CODE (caused race condition):
-        # try:
-        #     mark_row_in_progress(csv_row_id)
-        #     logger.info(f"Marked row {csv_row_id} as in-progress (0.5)")
-        # except Exception as e:
-        #     logger.error(f"CRITICAL: Failed to mark_row_in_progress for row {csv_row_id}, AID {aid}: {e}")
-        #     ...
+        # --- DEVELOPER DEBUG PRINTING BLOCK ---
+        print("\n" + "=" * 40)
+        print(f"Selected Architecture: {request.session.get('architecture')}")
+        print("=" * 40 + "\n")
         logger.info(f"Row {csv_row_id} was marked as 0.5 atomically inside load_block_trials()")
 
         # Create record (use get_or_create to prevent race condition)
