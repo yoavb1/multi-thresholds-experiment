@@ -72,283 +72,72 @@ def load_block_trials(csv_row_id=None) -> tuple:
         logger.error(f"CRITICAL: CSV file not found at {csv_path}")
         raise FileNotFoundError(f"CSV file not found: {csv_path}")
 
-    # Helper mapping to support 'signal', 'noise', and 'not sure'
+    # Helper mapping to support 'signal', 'noise', and 'uncertain'
     def get_ds_state(val):
-        # Assumes values: 0/noise -> 'noise', 2/signal -> 'signal', 1/uncertain -> 'not sure'
+        # Assumes values: 0/noise -> 'noise', 2/signal -> 'signal', 1/uncertain -> 'uncertain'
         # Adjust integers below if your data.csv uses different keys (e.g., strings)
-        try:
-            v = int(val)
-            mapping = {0: 'noise', 1: 'not sure', 2: 'signal'}
-            return mapping.get(v, 'not sure')
-        except (ValueError, TypeError):
-            # Fallback if your CSV already lists text strings
-            val_str = str(val).strip().lower()
-            if 'signal' in val_str: return 'signal'
-            if 'noise' in val_str: return 'noise'
-            return 'not sure'
+        # Fallback if your CSV already lists text strings
+        val_str = str(val).strip().lower()
+        if 'signal' in val_str: return 'signal'
+        if 'noise' in val_str: return 'noise'
+        return 'uncertain'
 
     # 2. Select condition row atomically using FileLock
     try:
         with FileLock(lock_path, timeout=30):
             event_data = pd.read_csv(csv_path)
 
-            # Initialize a 'used' state column if it doesn't exist in your new data.csv
-            if 'used' not in event_data.columns:
-                event_data['used'] = 0
-
             if csv_row_id:
-                selected_rows = event_data[event_data['condition_id'] == csv_row_id]
                 row_id = csv_row_id
             else:
-                # Find unassigned condition groups
-                fresh_ids = event_data[event_data['used'] == 0]['condition_id'].unique()
-                in_prog_ids = event_data[event_data['used'] == 0.5]['condition_id'].unique()
+                # Get a list of all unique condition IDs in the file and pick one completely at random
+                all_unique_ids = event_data['condition_id'].unique()
+                row_id = int(random.choice(all_unique_ids))
 
-                if len(fresh_ids) > 0:
-                    row_id = int(random.choice(fresh_ids))
-                    event_data.loc[event_data['condition_id'] == row_id, 'used'] = 0.5
-                    event_data.to_csv(csv_path, index=False)
-                elif len(in_prog_ids) > 0:
-                    row_id = int(random.choice(in_prog_ids))
-                else:
-                    row_id = int(random.choice(event_data['condition_id'].unique()))
-
+            # Filter the dataset down strictly to our randomly selected condition
             selected_rows = event_data[event_data['condition_id'] == row_id].sort_values('item_id')
 
-    except Timeout:
-        event_data = pd.read_csv(csv_path)
-        row_id = int(random.choice(event_data['condition_id'].unique()))
-        selected_rows = event_data[event_data['condition_id'] == row_id].sort_values('item_id')
+            # Extract meta baselines from the filtered subset
+            first_row = selected_rows.iloc[0]
+            ps = float(first_row['ps'])
+            dprime_h = float(first_row['dprime_human'])
+            dprime_s = float(first_row['dprime_ai'])
 
-    # Extract meta baselines using your updated column names
-    first_row = selected_rows.iloc[0]
-    ps = float(first_row['ps'])
-    dprime_h = float(first_row['dprime_human'])
-    dprime_s = float(first_row['dprime_ai'])
+            thresholds_distance = str(first_row['thresholds_distance'])
+            architecture = str(first_row['architecture'])
 
-    thresholds_distance = str(first_row['thresholds_distance'])
-    architecture = str(first_row['architecture'])
+            data_dict = {1: {}, 2: {}, 3: {}}
+            rows_list = selected_rows.to_dict('records')
 
-    data_dict = {1: {}, 2: {}, 3: {}}
-    rows_list = selected_rows.to_dict('records')
+            # Distribute the loaded items sequentially across experimental blocks
+            # Block 1: Trials 1-10
+            for idx, row in enumerate(rows_list[:10]):
+                trial_num = idx + 1
+                data_dict[1][trial_num] = {
+                    'event': row['true_label'],
+                    'stimuli': float(row['x_human']) + STIMULI_SCALAR,
+                    'ds_judgment': get_ds_state(row['ai_classification'])
+                }
 
-    # Distribute the loaded items sequentially across experimental blocks
-    # Block 1: Trials 1-10
-    for idx, row in enumerate(rows_list[:10]):
-        trial_num = idx + 1
-        data_dict[1][trial_num] = {
-            'event': row['true_label'],
-            'stimuli': float(row['x_human']) + STIMULI_SCALAR,
-            'ds_judgment': get_ds_state(row['ai_classification'])
-        }
+            # Block 2: Trials 11-20
+            for idx, row in enumerate(rows_list[10:20]):
+                trial_num = idx + 1
+                data_dict[2][trial_num] = {
+                    'event': row['true_label'],
+                    'stimuli': float(row['x_human']) + STIMULI_SCALAR,
+                    'ds_judgment': get_ds_state(row['ai_classification'])
+                }
 
-    # Block 2: Trials 11-20
-    for idx, row in enumerate(rows_list[10:20]):
-        trial_num = idx + 1  # Local block indexing (1 to 10)
-        data_dict[2][trial_num] = {
-            'event': row['true_label'],
-            'stimuli': float(row['x_human']) + STIMULI_SCALAR,
-            'ds_judgment': get_ds_state(row['ai_classification'])
-        }
+            # Block 3: Trials 21-120
+            for idx, row in enumerate(rows_list[20:120]):
+                trial_num = idx + 1
+                data_dict[3][trial_num] = {
+                    'event': row['true_label'],
+                    'stimuli': float(row['x_human']) + STIMULI_SCALAR,
+                    'ds_judgment': get_ds_state(row['ai_classification'])
+                }
 
-    # Block 3: Trials 21-120
-    for idx, row in enumerate(rows_list[20:120]):
-        trial_num = idx + 1  # Local block indexing (1 to 100)
-        data_dict[3][trial_num] = {
-            'event': row['true_label'],
-            'stimuli': float(row['x_human']) + STIMULI_SCALAR,
-            'ds_judgment': get_ds_state(row['ai_classification'])
-        }
-
-    return data_dict, row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture
-
-def mark_row_in_progress(csv_row_id: int):
-    """
-    Mark CSV row as used=0.5 when user STARTS experiment.
-    NOTE: This is now handled atomically inside load_block_trials() with FileLock.
-    This function is kept for backwards compatibility but should not be called for new users.
-    """
-    if csv_row_id:
-        csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
-
-        if not os.path.exists(csv_path):
-            logger.error(f"CRITICAL: CSV not found at {csv_path} in mark_row_in_progress")
-            raise FileNotFoundError(f"CSV not found: {csv_path}")
-
-        try:
-            event_data = pd.read_csv(csv_path)
-            old_value = event_data.loc[event_data['id'] == csv_row_id, 'used'].values
-            old_value = old_value[0] if len(old_value) > 0 else 'NOT_FOUND'
-
-            event_data.loc[event_data['id'] == csv_row_id, 'used'] = 0.5
-            event_data.to_csv(csv_path, index=False)
-
-            logger.info(f"Marked row {csv_row_id} as in-progress: {old_value} -> 0.5")
-        except Exception as e:
-            logger.error(f"Failed to mark row {csv_row_id} as in-progress: {e}")
-            raise
-
-
-def mark_row_as_used(user_id: int):
-    """
-    Mark CSV row as used=1 when user COMPLETES experiment.
-    Called from toast_4 (after questionnaire completion).
-    """
-    experiment_data = ExperimentData.objects.get(user_id=user_id)
-    csv_row_id = experiment_data.csv_row_id
-
-    if csv_row_id:
-        csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
-        lock_path = csv_path + ".lock"
-
-        with FileLock(lock_path, timeout=30):
-            event_data = pd.read_csv(csv_path)
-            event_data.loc[event_data['id'] == csv_row_id, 'used'] = 1
-
-            # Set isDemo: 1 for old users (demo/pilot), 0 for new users (CloudResearch only)
-            # Check if aid is from CloudResearch (not 'test' or local)
-            aid = experiment_data.aid
-            is_demo = 1 if (aid == 'test' or aid.startswith('local_')) else 0
-
-            if 'isDemo' not in event_data.columns:
-                event_data['isDemo'] = None
-            event_data.loc[event_data['id'] == csv_row_id, 'isDemo'] = is_demo
-
-            event_data.to_csv(csv_path, index=False)
-        logger.info(f"Marked CSV row {csv_row_id} as used=1 (completed)")
-
-
-def mark_row_as_available(csv_row_id: int):
-    """
-    Mark CSV row as used=0 when user QUITS/ABANDONS experiment.
-    This makes the row available for future users.
-    Called when incomplete user is detected.
-    """
-    if csv_row_id:
-        csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
-        lock_path = csv_path + ".lock"
-
-        with FileLock(lock_path, timeout=30):
-            event_data = pd.read_csv(csv_path)
-            # Only reset if it's in_progress (0.5), not if already completed (1)
-            current_value = event_data.loc[event_data['id'] == csv_row_id, 'used'].values[0]
-            if current_value == 0.5:
-                event_data.loc[event_data['id'] == csv_row_id, 'used'] = 0
-                event_data.to_csv(csv_path, index=False)
-                logger.info(f"Reset CSV row {csv_row_id} to used=0 (abandoned)")
-
-
-def _reset_abandoned_rows():
-    """
-    Auto-timeout: Reset CSV rows that have been in-progress (used=0.5) for >30 minutes.
-    Only checks users with used=0.5 rows (not all incomplete users).
-    Called on landing_page() - when user 100 arrives, it checks if user 99's row should be reset.
-
-    OPTIMIZATION: First check without lock, only acquire lock if there's work to do.
-    """
-    csv_path = os.path.join(settings.BASE_DIR, "data", "data.csv")
-    lock_path = csv_path + ".lock"
-
-    # Quick check without lock - just read to see if there's any work to do
-    event_data = pd.read_csv(csv_path)
-    in_progress_rows = event_data[event_data['used'] == 0.5]
-
-    if len(in_progress_rows) == 0:
-        return  # No in-progress rows to check
-
-    # Get the MOST RECENT incomplete user for each csv_row_id
-    # This prevents old users from affecting rows assigned to newer users
-    csv_row_ids = in_progress_rows['id'].tolist()
-
-    # Find the most recent user for each csv_row_id
-    most_recent_users = {}
-    for csv_row_id in csv_row_ids:
-        latest_user = ExperimentData.objects.filter(
-            csv_row_id=csv_row_id
-        ).order_by('-start_time').first()
-
-        if latest_user and not latest_user.complete:
-            most_recent_users[csv_row_id] = latest_user
-
-    # Determine which rows need to be reset (without modifying anything yet)
-    now = datetime.datetime.now()
-    timeout_minutes = 30
-    rows_to_reset = []
-
-    for csv_row_id, user in most_recent_users.items():
-        # csv_row_id already available from the dict key
-
-        # Get last action time (most recent action ID = most recent activity)
-        last_action = ExperimentAction.objects.filter(user_id=user.user_id).order_by('-id').first()
-
-        if last_action:
-            all_actions = ExperimentAction.objects.filter(user_id=user.user_id)
-            total_decision_time = sum(a.decision_time for a in all_actions)
-
-            start_time = user.start_time
-            if isinstance(start_time, str):
-                start_time = datetime.datetime.fromisoformat(start_time.replace('Z', '+00:00'))
-            if start_time.tzinfo:
-                start_time = start_time.replace(tzinfo=None)
-
-            now_naive = now.replace(tzinfo=None) if now.tzinfo else now
-            last_activity = start_time + datetime.timedelta(seconds=total_decision_time)
-            time_diff = (now_naive - last_activity).total_seconds() / 60
-        else:
-            start_time = user.start_time
-            if isinstance(start_time, str):
-                start_time = datetime.datetime.fromisoformat(start_time.replace('Z', '+00:00'))
-            if start_time.tzinfo:
-                start_time = start_time.replace(tzinfo=None)
-
-            now_naive = now.replace(tzinfo=None) if now.tzinfo else now
-            time_diff = (now_naive - start_time).total_seconds() / 60
-
-        if time_diff > timeout_minutes:
-            rows_to_reset.append((user, csv_row_id, last_action))
-
-    # If no rows to reset, we're done
-    if len(rows_to_reset) == 0:
-        return
-
-    # NOW acquire lock to make changes
-    with FileLock(lock_path, timeout=10):
-        # Re-read CSV to get fresh state
-        event_data = pd.read_csv(csv_path)
-        reset_count = 0
-
-        for user, csv_row_id, last_action in rows_to_reset:
-            # Verify row is still 0.5 (could have changed while we were processing)
-            current_value = event_data.loc[event_data['id'] == csv_row_id, 'used'].values
-            if len(current_value) == 0 or current_value[0] != 0.5:
-                continue  # Row state changed, skip
-
-            event_data.loc[event_data['id'] == csv_row_id, 'used'] = 0
-            reset_count += 1
-
-            # Set end_time
-            if not user.end_time:
-                if last_action:
-                    all_actions = ExperimentAction.objects.filter(user_id=user.user_id).order_by('id')
-                    total_decision_time = sum(a.decision_time for a in all_actions)
-
-                    start_time = user.start_time
-                    if isinstance(start_time, str):
-                        start_time = datetime.datetime.fromisoformat(start_time.replace('Z', '+00:00'))
-                    if start_time.tzinfo:
-                        start_time = start_time.replace(tzinfo=None)
-
-                    last_action_time = start_time + datetime.timedelta(seconds=total_decision_time)
-                    user.end_time = last_action_time.isoformat()
-                    user.save()
-                else:
-                    user.end_time = user.start_time.isoformat() if isinstance(user.start_time, str) else str(user.start_time)
-                    user.save()
-
-        # Save if any changes
-        if reset_count > 0:
-            event_data.to_csv(csv_path, index=False)
-            logger.info(f"Reset {reset_count} abandoned rows to used=0")
+            return data_dict, row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture
 
 
 def landing_page(request):
@@ -389,10 +178,6 @@ def landing_page(request):
             logger.info(f"Received AID '{aid}' from parameter '{aid_source}'")
 
     # ========== STEP 4: AUTO-TIMEOUT FOR ABANDONED ROWS ==========
-    try:
-        _reset_abandoned_rows()
-    except Exception as e:
-        logger.error(f"Error in _reset_abandoned_rows: {e}")
     # Check if user already exists (by aid, not just session!)
     try:
         experiment_data = ExperimentData.objects.get(aid=aid)
@@ -801,7 +586,7 @@ def game(request):
         if 'user_id' in request.session:
             experiment_data = ExperimentData.objects.get(user_id=request.session["user_id"])
 
-            # Save historical judgment state directly as string value ('signal' / 'noise' / 'not sure')
+            # Save historical judgment state directly as string value ('signal' / 'noise' / 'uncertain')
             ExperimentAction.objects.update_or_create(
                 user_id=experiment_data,
                 block_number=request.session["block"],
