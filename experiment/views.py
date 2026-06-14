@@ -728,6 +728,37 @@ def game(request):
 
     show_ds = request.session["block"] > 1
 
+    # Fetch architecture from session or database profile mapping
+    architecture = request.session.get("architecture", "1")
+
+    auto_classify = False
+    ai_decision = None
+
+    # Automation rules apply only if AI is visible/active (Block 2 & 3)
+    if show_ds:
+        # Architecture 1: AI identifies Signal -> Auto-classify Signal
+        if architecture == "1" and ds_judgment == "signal":
+            auto_classify = True
+            ai_decision = "signal"
+
+        # Architecture 2: AI identifies Noise -> Auto-classify Noise
+        elif architecture == "2" and ds_judgment == "noise":
+            auto_classify = True
+            ai_decision = "noise"
+
+        # Architecture 3: AI identifies Signal or Noise -> Auto-classify that specific state
+        elif architecture == "3" and ds_judgment in ["signal", "noise"]:
+            auto_classify = True
+            ai_decision = ds_judgment
+
+        # Calculate preview score adjustment to display in the frontend popup
+        auto_score_change = 0
+        if auto_classify:
+            if ai_decision == event_type:
+                auto_score_change = 1
+            else:
+                auto_score_change = -1
+
     context = {
         'pd': request.session["pd"],
         'event_type': event_type,
@@ -736,14 +767,25 @@ def game(request):
         'trial': request.session["trial"],
         'score': request.session["score"],
         'block': request.session["block"],
-        'show_ds': show_ds
+        'show_ds': show_ds,
+        'auto_classify': auto_classify,
+        'ai_decision': ai_decision,
+        'auto_score_change': auto_score_change,
     }
 
     if request.method == "POST":
         entry_time = datetime.datetime.fromisoformat(request.session.get('screen_entry_time'))
         time_spent = (datetime.datetime.now() - entry_time).total_seconds()
 
-        user_choice = request.POST['Classification']
+        # Check if this submit came from Javascript auto-classifier popup
+        is_auto = request.POST.get('is_auto_classified') == 'true'
+
+        # Parse choice safely from standard input OR auto popup ---
+        if is_auto:
+            user_choice = request.POST.get('Classification')  # The JS will pass the AI decision here
+        else:
+            user_choice = request.POST.get('Classification')  # Normal button click selection
+
         request.session["classification"] = user_choice
 
         # Scoring logic matrix evaluates choice matching objective ground truth
