@@ -108,12 +108,6 @@ def load_block_trials(csv_row_id=None) -> tuple:
     dprime_s = float(first_row['dprime_ai'])
 
     thresholds_distance = str(first_row['thresholds_distance'])
-    # FIX: If architecture is '0', 'nan', or missing, sample a random group condition cleanly
-    raw_arch = str(first_row['architecture']).strip()
-    if raw_arch in ['0', 'nan', 'None', '']:
-        architecture = random.choice(["1", "2", "3"])
-    else:
-        architecture = raw_arch
 
     data_dict = {1: {}, 2: {}, 3: {}}
     rows_list = selected_rows.to_dict('records')
@@ -146,7 +140,7 @@ def load_block_trials(csv_row_id=None) -> tuple:
             'ds_judgment': get_ds_state(row['ai_classification'])
         }
 
-    return data_dict, row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture
+    return data_dict, row_id, ps, dprime_h, dprime_s, thresholds_distance
 
 
 def landing_page(request):
@@ -156,6 +150,8 @@ def landing_page(request):
 
     aid_param_names = ['aid', 'workerId', 'WORKER_ID', 'worker_id', 'participant_id',
                        'participantId', 'session_id', 'sessionId', 'prolific_pid', 'PROLIFIC_PID']
+
+    architecture = random.choice(["1","2","3"])
 
     for param_name in aid_param_names:
         value = request.GET.get(param_name)
@@ -199,11 +195,11 @@ def landing_page(request):
         # Incomplete user - restore their data
         csv_row_id = experiment_data.csv_row_id
         if csv_row_id:
-            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance = load_block_trials(
                 csv_row_id=csv_row_id)
         else:
             # Replaced output placeholder name to match assignments cleanly
-            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance = load_block_trials()
             experiment_data.csv_row_id = csv_row_id
             experiment_data.ps = ps
             experiment_data.human_sensitivity = dprime_h
@@ -240,7 +236,7 @@ def landing_page(request):
         logger.info(f"Creating new user with AID: {aid}")
 
         try:
-            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials()
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance = load_block_trials()
             logger.info(f"Randomly assigned condition group (row reference): {csv_row_id} to AID {aid}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to load_block_trials for AID {aid}: {e}")
@@ -274,7 +270,7 @@ def landing_page(request):
         # If not created, someone else created it simultaneously - fallback to existing data row
         if not created:
             csv_row_id = experiment_data.csv_row_id
-            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance, architecture = load_block_trials(
+            events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance = load_block_trials(
                 csv_row_id=csv_row_id)
             logger.info(f"User already existed in database, loaded from saved row {csv_row_id}")
 
