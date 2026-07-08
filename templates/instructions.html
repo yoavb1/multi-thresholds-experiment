@@ -182,11 +182,37 @@
         {% elif screen == 4 %}
             <h2>Block 2 (Practice with DS)</h2>
             <p><b>What's Different:</b> Now you'll see both the module reading AND a Decision Support (DS) system recommendation.</p>
-            <p><b>DS System:</b> The DS is an AI system that learned from data and can help you by providing advice. The system shows a colored rectangle:</p>
-            <ul>
-                <li><p><b>Red rectangle</b> = "Alarm" (system recommends intervention)</p></li>
-                <li><p><b>Green rectangle</b> = "No Alarm" (system says no intervention needed and you can skip)</p></li>
-            </ul>
+            <p><b>DS System:</b> The DS is an AI system that learned from data and can help you by providing advice. The system can provide explicit automated tracking or suggestions:</p>
+
+            <!-- EXPLANATION TARGETING ARCHITECTURE HOOKS -->
+            <blockquote>
+                {% if architecture == "1" %}
+                    <p><b>Your AI Assistant Configuration:</b></p>
+                    <ul>
+                        <li><p>The AI will display its recommendation for every module. However, it will <b>automatically make the decision for you</b> only when it is completely sure that you should <b>Intervene</b>.</p></li>
+                        <li><p>When an intervention is needed, an automated window will pop up showing a <b>Red "Alarm"</b> indicator, automatically update your score, and advance to the next trial.</p></li>
+                        <li><p>If the AI recommends that you should <b>Skip</b> or if it is "Uncertain," the automated window will <b>not</b> pop up. You will see its standard guidance, but you must click either <b>Intervene</b> or <b>Skip</b> manually using your own judgment.</p></li>
+                    </ul>
+                {% elif architecture == "2" %}
+                    <p><b>Your AI Assistant Configuration:</b></p>
+                    <ul>
+                        <li><p>The AI will display its recommendation for every module. However, it will <b>automatically make the decision for you</b> only when it is completely sure that you should <b>Skip</b> the module.</p></li>
+                        <li><p>When no intervention is needed, an automated window will pop up showing a <b>Green "Clear"</b> indicator, automatically update your score, and advance to the next trial.</p></li>
+                        <li><p>If the AI recommends that you should <b>Intervene</b> or if it is "Uncertain," the automated window will <b>not</b> pop up. You will see its standard guidance, but you must click either <b>Intervene</b> or <b>Skip</b> manually using your own judgment.</p></li>
+                    </ul>
+                {% elif architecture == "3" %}
+                    <p><b>Your AI Assistant Configuration:</b></p>
+                    <ul>
+                        <li><p>This AI will <b>automatically make the decision for you</b> whenever it is completely sure about what to do. This includes both instances where you should <b>Intervene</b> (showing a <b>Red "Alarm"</b> popup) and instances where you should <b>Skip</b> (showing a <b>Green "Clear"</b> popup).</p></li>
+                        <li><p>In both certain cases, the automated window will pop up, update your score, and advance the trial automatically.</p></li>
+                        <li><p>The <b>only time</b> you will make a manual choice is when the AI is completely <b>"Uncertain"</b>. When it is uncertain, no automated popup will appear, and you must use your own judgment to choose <b>Intervene</b> or <b>Skip</b>.</p></li>
+                    </ul>
+                {% else %}
+                    <p><b>Your AI Assistant Configuration:</b></p>
+                    <p>The AI assistant analyzes the module readings to determine if an intervention is required. Depending on its confidence parameters, it will sometimes pop up with an automatic choice to advance the trial, and other times leave the final decision to your manual judgment where you will choose to Intervene or Skip.</p>
+                {% endif %}
+            </blockquote>
+
             <p><b>Important:</b> The DS system is not perfect - it can make mistakes. Be aware of its output and use your judgment to decide whether to follow its recommendation or not.</p>
             <p>Remember: Make your own decision based on *all* available information. Scoring works the same as Block 1 - you'll get feedback after each decision.</p>
             <div class="div_fig">
@@ -200,20 +226,30 @@
             </div>
         {% elif screen == 6 %}
             <h2>Block 3 (Main Experiment)</h2>
-            <p><b>What's Different:</b> This is the main experiment block. Everything works the same as Block 2:</p>
+            <p><b>What's Different:</b> This is the main experiment block. Everything works exactly the same as Block 2, using your assigned AI Assistant configuration:</p>
             <ul>
-                <li><p>You'll see the module reading</p></li>
-                <li><p>You'll see the DS system recommendation (red/green rectangle)</p></li>
-                <li><p>You decide: intervene or skip</p></li>
-                <li><p>You get feedback and points after each decision</p></li>
+                <li><p>You will see the module reading on your screen.</p></li>
+                <li><p>The AI will display its standard recommendation.</p></li>
+
+                {% if architecture == "1" %}
+                    <li><p>The AI will continue to <b>automatically decide and advance the trial</b> only when it is completely sure you should <b>Intervene</b>.</p></li>
+                {% elif architecture == "2" %}
+                    <li><p>The AI will continue to <b>automatically decide and advance the trial</b> only when it is completely sure you should <b>Skip</b>.</p></li>
+                {% elif architecture == "3" %}
+                    <li><p>The AI will continue to <b>automatically decide and advance the trial</b> whenever it is completely sure about either choice (<b>Intervene</b> or <b>Skip</b>).</p></li>
+                {% endif %}
+
+                <li><p>Whenever the AI is "Uncertain" (or handles a non-automated action), you must manually click either <b>Intervene</b> or <b>Skip</b> based on your own judgment and the system recommendation.</p></li>
+                <li><p>You will continue to get points and feedback after every single decision.</p></li>
             </ul>
-            <p>Your score resets to 30 points for this block. The scoring rules remain the same.</p>
+            <p>Your score resets to 30 points for this block. The scoring rules remain exactly the same.</p>
             <div class="button-container">
                 <button type="submit" name="Continue" value="pd_screen" class="button next">Next</button>
             </div>
         {% else %}
             <p>Invalid screen number.</p>
         {% endif %}
+    </div>
 </form>
 </body>
 </html>

@@ -365,8 +365,9 @@ def instructions(request):
 
     context = {
         "screen": current_screen,
+        "architecture": request.session.get("architecture", "1"),
         'ds_sensitivity': request.session["ds_sensitivity"],
-        "v_tp": 1, "v_fp": 1, "v_tn": 1, "v_fn": 2,
+        "v_tp": 1, "v_fp": 1, "v_tn": 1, "v_fn": 1,
     }
     if request.method == "POST":
         if request.POST['Continue'] == 'continue':
