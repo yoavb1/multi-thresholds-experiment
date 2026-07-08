@@ -652,9 +652,6 @@ def toast_4(request):
             education=request.POST.get('education')
         )
 
-        # Mark CSV row as used ONLY when user completes experiment
-        mark_row_as_used(experiment_data.user_id)
-
         return redirect('/end/')
 
     return render(request, 'toast_4.html')
