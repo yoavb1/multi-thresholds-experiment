@@ -152,6 +152,7 @@ def landing_page(request):
                        'participantId', 'session_id', 'sessionId', 'prolific_pid', 'PROLIFIC_PID']
 
     architecture = random.choice(["1","2","3"])
+    logger.info(f"Randomly assigned to architecture: {'AI Acts on Signal' if architecture == 1 else 'AI Acts on Noise' if architecture == 2 else 'AI Acts on Signal and Noise'} to AID {aid}")
 
     for param_name in aid_param_names:
         value = request.GET.get(param_name)
@@ -237,7 +238,7 @@ def landing_page(request):
 
         try:
             events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance = load_block_trials()
-            logger.info(f"Randomly assigned condition group (row reference): {csv_row_id} to AID {aid}")
+            logger.info(f"Randomly assigned condition : d_h = {dprime_h}, d_s = {dprime_s}, beta_distance = {thresholds_distance} to AID {aid}")
         except Exception as e:
             logger.error(f"CRITICAL: Failed to load_block_trials for AID {aid}: {e}")
             error_log_path = os.path.join(settings.BASE_DIR, 'data', 'csv_errors.log')
@@ -303,6 +304,7 @@ def consent_form(request):
     if request.method == "POST":
         if request.POST['Continue'] == 'begin_experiment':
             request.session["current_screen"] = 1
+            logger.info(f"Consent Form checkbox")
             return redirect('/recaptcha/')
         elif request.POST['Continue'] == 'end_experiment':
             # If user never started (no user_id), redirect directly to CloudResearch
@@ -388,6 +390,7 @@ def instructions(request):
             request.session["score"] = 30
             request.session["block"] = 1
             request.session["trial"] = 1
+            logger.info(f"Trial Block 1")
             return redirect('/game/')
         elif request.POST['Continue'] == 'start_block_2':
             request.session["current_screen"] += 1
@@ -395,6 +398,7 @@ def instructions(request):
             request.session["score"] = 30
             request.session["block"] = 2
             request.session["trial"] = 1
+            logger.info(f"Trial Block 2")
             return redirect('/game/')
         elif request.POST['Continue'] == 'pd_screen':
             request.session["pd"] = True
@@ -402,6 +406,7 @@ def instructions(request):
             request.session["block"] = 3
             request.session["trial"] = 1
             request.session["default"] = False
+            logger.info(f"Block 3")
             return redirect('/game/')
         return redirect('/instructions/')
 
@@ -488,7 +493,7 @@ def game(request):
         request.session["block_scores"] = block_scores
         return redirect('/instructions/')
 
-    elif request.session["block"] == 3 and request.session["trial"] > 100:
+    elif request.session["block"] == 3 and request.session["trial"] > 2:
         block_scores = request.session.get("block_scores", {})
         block_scores["3"] = [request.session["score"], request.session["pd"]]
         request.session["block_scores"] = block_scores

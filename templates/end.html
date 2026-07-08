@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Experiment Completed</title>
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
     <style>
         .container {
             text-align: center;
