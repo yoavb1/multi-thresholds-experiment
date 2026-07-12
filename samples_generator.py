@@ -255,6 +255,8 @@ def generate_experiment_sets(
 
     final_df = pd.concat(all_conditions, ignore_index=True)
 
+    # final_df = final_df[final_df['dprime_human'] == 1.5]
+
     final_df.to_csv(output_file, index=False)
 
     return final_df
@@ -264,16 +266,17 @@ def check_data(df):
 
 if __name__ == "__main__":
     df = generate_experiment_sets(
-            dprime_ai_low=1.5,
-            dprime_ai_high=2.5,
+            dprime_ai_low=1,
+            dprime_ai_high=2,
             dprime_human_low=1.5,
-            dprime_human_high=2.5,
-            threshold_distance_small=1,
-            threshold_distance_large=0.5,
+            dprime_human_high=2,
+            threshold_distance_small=2,
+            threshold_distance_large=3,
             ps=0.5,
             architecture=0,
             sd=1,
             output_file="data/data.csv",
             seed=123
         )
+    print(df.shape[0])
     check_data(df)

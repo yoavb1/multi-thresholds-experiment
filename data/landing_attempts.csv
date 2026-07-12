@@ -57,3 +57,5 @@ timestamp,aid,source,ip,user_agent,referer,all_params
 2026-07-08T08:22:26.633836,NO_AID,none,127.0.0.1,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.",http://127.0.0.1:8000/,{}
 2026-07-08T12:29:46.220730,NO_AID,none,127.0.0.1,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.",none,{}
 2026-07-08T12:29:51.512284,NO_AID,none,127.0.0.1,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.",http://127.0.0.1:8000/,{}
+2026-07-12T11:20:05.349844,NO_AID,none,127.0.0.1,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.",none,{}
+2026-07-12T11:20:06.411099,NO_AID,none,127.0.0.1,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.",http://127.0.0.1:8000/,{}

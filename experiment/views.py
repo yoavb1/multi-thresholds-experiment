@@ -429,6 +429,7 @@ def end(request):
     has_toast_response = TOASTResponse.objects.filter(user_id=request.session["user_id"]).exists()
 
     # User is complete ONLY if both conditions are met
+    # User is complete ONLY if both conditions are met
     if action_count >= 120 and has_toast_response:
         participant.complete = True
         request.session["complete"] = True
@@ -493,7 +494,7 @@ def game(request):
         request.session["block_scores"] = block_scores
         return redirect('/instructions/')
 
-    elif request.session["block"] == 3 and request.session["trial"] > 2:
+    elif request.session["block"] == 3 and request.session["trial"] > 100:
         block_scores = request.session.get("block_scores", {})
         block_scores["3"] = [request.session["score"], request.session["pd"]]
         request.session["block_scores"] = block_scores
