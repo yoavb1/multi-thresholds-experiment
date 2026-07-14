@@ -169,15 +169,22 @@
 <script>
   const touched = new Set();
 
-  // Initialize all sliders and outputs
+// Initialize all sliders and outputs
   window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('input[type="range"]').forEach(slider => {
       updateOutput(slider.id);
+
+      // Keep your original input event just in case they slide it
       slider.addEventListener('input', () => markTouched(slider.id));
+
+      // NEW: Catch clicks/taps instantly—even if they choose '1' without moving it
+      slider.addEventListener('pointerdown', () => markTouched(slider.id));
+      slider.addEventListener('mousedown', () => markTouched(slider.id));
+      slider.addEventListener('touchstart', () => markTouched(slider.id));
     });
   });
 
-  function updateOutput(id) {
+function updateOutput(id) {
     const slider = document.getElementById(id);
     const output = document.getElementById(id + '-output');
     output.innerHTML = '<strong>' + slider.value + '</strong>';

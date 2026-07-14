@@ -180,7 +180,14 @@
   window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('input[type="range"]').forEach(slider => {
       updateOutput(slider.id);
+
+      // Keeps original drag logic intact
       slider.addEventListener('input', () => markTouched(slider.id));
+
+      // FIX: Registers a touch instantly when they click/tap on 1
+      slider.addEventListener('pointerdown', () => markTouched(slider.id));
+      slider.addEventListener('mousedown', () => markTouched(slider.id));
+      slider.addEventListener('touchstart', () => markTouched(slider.id));
     });
   });
 

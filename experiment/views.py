@@ -195,6 +195,7 @@ def landing_page(request):
 
         # Incomplete user - restore their data
         csv_row_id = experiment_data.csv_row_id
+        print(csv_row_id)
         if csv_row_id:
             events_data, csv_row_id, ps, dprime_h, dprime_s, thresholds_distance = load_block_trials(
                 csv_row_id=csv_row_id)

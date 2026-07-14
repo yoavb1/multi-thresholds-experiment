@@ -84,7 +84,6 @@ def generate_ai_classification(x_ai, blow, bhigh):
 
 def generate_one_block(
     condition_id,
-    architecture,
     block,
     block_n_items,
     dprime_ai,
@@ -127,7 +126,6 @@ def generate_one_block(
 
     df_block = pd.DataFrame({
         "condition_id": condition_id,
-        "architecture": architecture,
         "block": block,
         "ps": ps,
         "dprime_ai": dprime_ai,
@@ -146,7 +144,6 @@ def generate_one_block(
 
 def generate_one_condition(
     condition_id,
-    architecture,
     dprime_ai,
     dprime_human,
     thresholds_distance,
@@ -167,7 +164,6 @@ def generate_one_condition(
     for block, block_n_items in block_sizes.items():
         df_block = generate_one_block(
             condition_id=condition_id,
-            architecture=architecture,
             block=block,
             block_n_items=block_n_items,
             dprime_ai=dprime_ai,
@@ -187,7 +183,6 @@ def generate_one_condition(
     df_condition = df_condition[
         [
             "condition_id",
-            "architecture",
             "item_id",
             "block",
             "ps",
@@ -214,7 +209,6 @@ def generate_experiment_sets(
     threshold_distance_small,
     threshold_distance_large,
     ps,
-    architecture=0,
     sd=1,
     output_file="experiment_data.csv",
     seed=123
@@ -242,7 +236,6 @@ def generate_experiment_sets(
     for condition in conditions:
         df_condition = generate_one_condition(
             condition_id=condition["condition_id"],
-            architecture=architecture,
             dprime_ai=condition["dprime_ai"],
             dprime_human=condition["dprime_human"],
             thresholds_distance=condition["thresholds_distance"],
@@ -257,7 +250,8 @@ def generate_experiment_sets(
 
     # final_df = final_df[final_df['dprime_human'] == 1.5]
 
-    final_df.to_csv(output_file, index=False)
+    # final_df.to_csv(output_file, index=False)
+    print(final_df.head())
 
     return final_df
 
@@ -273,7 +267,6 @@ if __name__ == "__main__":
             threshold_distance_small=2,
             threshold_distance_large=3,
             ps=0.5,
-            architecture=0,
             sd=1,
             output_file="data/data.csv",
             seed=123
